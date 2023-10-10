@@ -1,2 +1,4 @@
 # ignore ALL .class files
 *.class
+.idea
+*.iml

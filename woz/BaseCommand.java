@@ -9,8 +9,19 @@ class BaseCommand {
   String description = "Undocumented";
 
 
-  //The method is declared as protected, which means that it can only be accessed within the same package or by a subclass of the class that defines it.
-  //Takes an array of strings parameters and an integer bound as input and returns a boolean value.
+  /**
+   * The guardEq function checks if the length of the parameters array is equal to
+   * the bound value. If it is, then this method returns true, indicating that
+   * guard condition has failed. Otherwise, it returns false.
+
+   *
+   * @param String[] parameters Store the parameters of the method
+   * @param int bound Check if the length of the parameters array is equal to bound
+   *
+   * @return True if the length of the parameters array is equal to
+   *
+   * @docauthor Trelent
+   */
   protected boolean guardEq (String[] parameters, int bound) {
 
     //Checks if the length of the parameters array is not equal to the bound value,
@@ -19,7 +30,15 @@ class BaseCommand {
   }
 
 
-  //Getter for the description
+  /**
+   * The getDescription function returns the description of the item.
+   *
+   *
+   *
+   * @return The description of the object
+   *
+   * @docauthor Trelent
+   */
   public String getDescription () {
     return description;
   }
