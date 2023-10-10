@@ -2,18 +2,50 @@
  */
 
 class Context {
+
   Space current;
   boolean done = false;
   
+  /**
+   * The Context function is used to set the current node in the tree.
+   *
+   *
+   * @param Space node Set the current node to the one that is passed in
+   *
+   * @return A pointer to the current node
+   *
+   * @docauthor Trelent
+   */
   Context (Space node) {
     current = node;
   }
   
+  /**
+   * The getCurrent function returns the current space that the player is on.
+   *
+   *
+   *
+   * @return The current space
+   *
+   * @docauthor Trelent
+   */
   public Space getCurrent() {
     return current;
   }
   
+  /**
+   * The transition function takes a direction as an argument and moves the player to the next space in that direction.
+   * If there is no space in that direction, it prints out a message saying so.
+   *
+   *
+   * @param String direction Determine which direction the player wants to go
+   *
+   * @return A space
+   *
+   * @docauthor Trelent
+   */
   public void transition (String direction) {
+
     Space next = current.followEdge(direction);
     if (next==null) {
       System.out.println("You are confused, and walk in a circle looking for '"+direction+"'. In the end you give up 😩");
@@ -24,10 +56,30 @@ class Context {
     }
   }
   
+  /**
+   * The makeDone function sets the done variable to true.
+
+   *
+   *
+   * @return Nothing
+   *
+   * @docauthor Trelent
+   */
   public void makeDone () {
     done = true;
   }
   
+  /**
+   * The isDone function returns a boolean value that indicates whether or not the
+   * game is over. The game is over when all of the tiles have been flipped and
+   * matched, so this function checks to see if there are any unflipped tiles left.
+
+   *
+   *
+   * @return A boolean value that is true if the task has been completed and false otherwise
+   *
+   * @docauthor Trelent
+   */
   public boolean isDone () {
     return done;
   }
