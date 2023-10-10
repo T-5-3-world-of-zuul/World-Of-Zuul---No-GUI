@@ -15,7 +15,6 @@ class Space extends Node {
    *
    * @return Nothing, so it's return type is void
    *
-   * @docauthor Trelent
    */
   public void welcome () {
     System.out.println("You are now at "+name);
@@ -33,7 +32,6 @@ class Space extends Node {
    *
    * @return Nothing
    *
-   * @docauthor Trelent
    */
   public void goodbye () {
   }
@@ -46,7 +44,6 @@ class Space extends Node {
    *
    * @return The space that is connected to the current
    *
-   * @docauthor Trelent
    */
   @Override
   public Space followEdge (String direction) {

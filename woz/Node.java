@@ -16,7 +16,6 @@ class Node {
    *
    * @return A new node with the name of the parameter
    *
-   * @docauthor Trelent
    */
   Node (String name) {
     this.name = name;
@@ -30,7 +29,6 @@ class Node {
    *
    * @return The name of the person
    *
-   * @docauthor Trelent
    */
   public String getName () {
     return name;
@@ -45,7 +43,6 @@ class Node {
    *
    * @return Nothing, it is a void function
    *
-   * @docauthor Trelent
    */
   public void addEdge (String name, Node node) {
     edges.put(name, node);
@@ -59,7 +56,6 @@ class Node {
    *
    * @return The node that is connected to the current node by the edge with the given direction
    *
-   * @docauthor Trelent
    */
   public Node followEdge (String direction) {
     return edges.get(direction);

@@ -15,7 +15,6 @@ class CommandUnknown extends BaseCommand implements Command {
    *
    * @return Void
    *
-   * @docauthor Trelent
    */
   @Override
   public void execute (Context context, String command, String parameters[]) {

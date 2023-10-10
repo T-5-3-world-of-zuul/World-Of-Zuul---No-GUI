@@ -19,7 +19,6 @@ class Registry {
    *
    * @return A command object
    *
-   * @docauthor Trelent
    */
   Registry (Context context, Command fallback) {
     this.context = context;
@@ -42,7 +41,6 @@ class Registry {
    *
    * @return Void, which means that nothing is returned
    *
-   * @docauthor Trelent
    */
   public void register (String name, Command command) {
     commands.put(name, command);
@@ -62,7 +60,6 @@ class Registry {
    *
    * @return The result of the execute function
    *
-   * @docauthor Trelent
    */
   public void dispatch (String line) {
     String[] elements = line.split(" ");
@@ -80,7 +77,6 @@ class Registry {
    *
    * @return The command object associated with the given name
    *
-   * @docauthor Trelent
    */
   public Command getCommand (String commandName) {
     return commands.get(commandName);
@@ -93,7 +89,6 @@ class Registry {
    *
    * @return An array of strings containing the names of all
    *
-   * @docauthor Trelent
    */
   public String[] getCommandNames () {
     return commands.keySet().toArray(new String[0]);
@@ -109,7 +104,6 @@ class Registry {
    *
    * @return An array of strings,
    *
-   * @docauthor Trelent
    */
   private String[] getParameters (String[] input) {
     String[] output = new String[input.length-1];

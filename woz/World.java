@@ -16,7 +16,6 @@ class World {
    *
    * @return The entry space
    *
-   * @docauthor Trelent
    */
   World () {
     Space entry    = new Space("Entry");
@@ -42,7 +41,6 @@ class World {
    *
    * @return The entry of the room
    *
-   * @docauthor Trelent
    */
   Space getEntry () {
     return entry;

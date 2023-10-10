@@ -18,7 +18,6 @@ class Game {
    *
    * @return A commandregistry object
    *
-   * @docauthor Trelent
    */
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
@@ -40,7 +39,6 @@ class Game {
    *
    * @return Nothing (void)
    *
-   * @docauthor Trelent
    */
   public static void main (String args[]) {
     System.out.println("Welcome to the World of Zuul!");

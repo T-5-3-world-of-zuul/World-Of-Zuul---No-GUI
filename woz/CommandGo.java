@@ -9,10 +9,8 @@ class CommandGo extends BaseCommand implements Command {
    * If there is a match, then it will change rooms to that exit's destination.
    *
    *
-   *
    * @return The exit that the player is trying to go through
    *
-   * @docauthor Trelent
    */
   CommandGo () {
     description = "Follow an exit";
@@ -31,7 +29,6 @@ class CommandGo extends BaseCommand implements Command {
    *
    * @return Nothing
    *
-   * @docauthor Trelent
    */
   @Override
   public void execute (Context context, String command, String[] parameters) {

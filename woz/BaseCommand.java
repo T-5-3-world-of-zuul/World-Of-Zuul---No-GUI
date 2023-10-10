@@ -20,7 +20,6 @@ class BaseCommand {
    *
    * @return True if the length of the parameters array is equal to
    *
-   * @docauthor Trelent
    */
   protected boolean guardEq (String[] parameters, int bound) {
 
@@ -33,11 +32,8 @@ class BaseCommand {
   /**
    * The getDescription function returns the description of the item.
    *
-   *
-   *
    * @return The description of the object
    *
-   * @docauthor Trelent
    */
   public String getDescription () {
     return description;

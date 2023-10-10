@@ -12,11 +12,7 @@ class CommandExit extends BaseCommand implements Command {
    * @param Context context Access the context object
    * @param String command Determine what command to execute
    * @param String parameters[] Pass the parameters of the command
-  }
    *
-   * @return A boolean
-   *
-   * @docauthor Trelent
    */
   @Override
   public void execute (Context context, String command, String parameters[]) {

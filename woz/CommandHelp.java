@@ -14,7 +14,6 @@ class CommandHelp extends BaseCommand implements Command {
    *
    * @return A string
    *
-   * @docauthor Trelent
    */
   CommandHelp (Registry registry) {
     this.registry = registry;
@@ -33,7 +32,6 @@ class CommandHelp extends BaseCommand implements Command {
    *
    * @return Void
    *
-   * @docauthor Trelent
    */
   @Override
   public void execute (Context context, String command, String[] parameters) {

@@ -14,7 +14,6 @@ class Context {
    *
    * @return A pointer to the current node
    *
-   * @docauthor Trelent
    */
   Context (Space node) {
     current = node;
@@ -27,7 +26,6 @@ class Context {
    *
    * @return The current space
    *
-   * @docauthor Trelent
    */
   public Space getCurrent() {
     return current;
@@ -42,7 +40,6 @@ class Context {
    *
    * @return A space
    *
-   * @docauthor Trelent
    */
   public void transition (String direction) {
 
@@ -63,7 +60,6 @@ class Context {
    *
    * @return Nothing
    *
-   * @docauthor Trelent
    */
   public void makeDone () {
     done = true;
@@ -78,7 +74,6 @@ class Context {
    *
    * @return A boolean value that is true if the task has been completed and false otherwise
    *
-   * @docauthor Trelent
    */
   public boolean isDone () {
     return done;
