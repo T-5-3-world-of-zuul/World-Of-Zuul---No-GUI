@@ -18,10 +18,9 @@ We'd also love PRs. If you're thinking of a large PR, we advise opening up an is
 1. clone the repository.
 2. Create a new branch: `git checkout -b my-branch-name`.
 3. Work on your issue/feature
-4. Before committing the changes run tests using `yarn test`
-5. Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for writing commit messages
-6. Push to your fork and [submit a pull request][pr] in `main` branch
-7. Pat your self on the back and wait for your pull request to be approved and merged.
+4. Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for writing commit messages
+5. Push to your fork and [submit a pull request][pr] in `main` branch
+6. Pat your self on the back and wait for your pull request to be approved and merged.
 
 Here are a few things you can do that will increase the likelihood of your pull request being accepted:
 
