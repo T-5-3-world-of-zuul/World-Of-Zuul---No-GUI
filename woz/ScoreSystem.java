@@ -19,7 +19,7 @@ public class ScoreSystem extends EnergySystem {
      * @param PlayerAction playerAction Determine the energy used by the player
      * @param PlayerAction mostEffectiveAction Compare the energy used by the player action to the energy required for most effective action
      *
-     * @return The difference between the energy required for the most effective action and
+     * @return The difference between the energy required for the most effective action
      *
      */
     public int calculateScore(PlayerAction playerAction, PlayerAction mostEffectiveAction) {
