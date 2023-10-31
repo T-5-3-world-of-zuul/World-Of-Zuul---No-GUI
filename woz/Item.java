@@ -4,4 +4,11 @@ public class Item {
     public Item(int itemIndex){
         index = itemIndex;
     }
+
+    //Obselete currently
+    public enum itemTypes{
+        shovel,
+        sandbags,
+        seeds
+    }
 }
