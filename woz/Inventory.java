@@ -17,4 +17,13 @@ public class Inventory {
                 inventory.remove(itemIndex);
         }
     }
+
+    public boolean CheckForItem(int itemIndex){
+        for (Item item:
+                inventory){
+            if(item.index == itemIndex)
+                return true;
+        }
+        return false;
+    }
 }
