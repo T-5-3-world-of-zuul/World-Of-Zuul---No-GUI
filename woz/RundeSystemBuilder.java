@@ -8,17 +8,17 @@ public class RundeSystemBuilder {
         return this;
     }
 
-    public RundeSystemBuilder setRound(int round) {
+    public void setRound(int round) {
         this.round = round;
-        return this;
     }
+
 
     public RundeSystemBuilder setIsAwake(boolean isAwake) {
         this.isAwake = isAwake;
         return this;
     }
 
-    public RundeSystem createRundeSystem() {
-        return new RundeSystem(world, round, isAwake);
+    public void createRundeSystem() {
+        new RundeSystem(world, round, isAwake);
     }
 }
