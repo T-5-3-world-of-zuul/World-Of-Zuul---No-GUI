@@ -1,8 +1,10 @@
 public class DisasterHandler {
     private Enum disasterType;
+    private Player player;
     public DisasterHandler(Enum disasterType) {
         this.disasterType = disasterType;
     }
+
 
     public void SummonDrout() {
         this.disasterType = DisasterTypes.DROUT;
@@ -32,6 +34,15 @@ public class DisasterHandler {
     public void SummonLarver() {
         this.disasterType = DisasterTypes.LARVER;
         System.out.println("summoned! You have 10 minutes to prepare!");
+    }
+
+    public void SolveDrout() {
+        if(player.getEnergy() < 10) {
+            System.out.println("You don't have enough energy to solve this disaster!");
+        } else {
+            player.removeEnergy(10);
+            System.out.println("You solved the disaster!");
+        }
     }
 
     public void hint() {

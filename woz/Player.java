@@ -12,4 +12,14 @@ public class Player extends EnergySystem {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public int getEnergy() {
+        return super.getEnergy();
+    }
+
+    @Override
+    public int getMaxEnergy() {
+        return super.getMaxEnergy();
+    }
 }
