@@ -5,7 +5,11 @@ class Context {
 
   Space current;
   boolean done = false;
-  
+
+  Inventory playerInventory = new Inventory();
+
+  RoundSystem roundSystem = new RoundSystem(0,Game.getWorld(),true);
+
   /**
    * The Context function is used to set the current node in the tree.
    *
@@ -30,7 +34,14 @@ class Context {
   public Space getCurrent() {
     return current;
   }
-  
+
+  public Inventory getPlayerInventory(){
+    return playerInventory;
+  }
+
+  public RoundSystem getRoundSystem(){
+    return roundSystem;
+  }
   /**
    * The transition function takes a direction as an argument and moves the player to the next space in that direction.
    * If there is no space in that direction, it prints out a message saying so.

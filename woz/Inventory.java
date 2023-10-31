@@ -18,12 +18,22 @@ public class Inventory {
         }
     }
 
-    public boolean CheckForItem(int itemIndex){
+    public Item CheckForItem(int itemIndex){
         for (Item item:
                 inventory){
             if(item.index == itemIndex)
-                return true;
+                return item;
         }
-        return false;
+        return null;
     }
+
+    public Item CheckForItem(String itemName){
+        for (Item item:
+                inventory){
+            if(item.name.equals(itemName))
+                return item;
+        }
+        return null;
+    }
+
 }

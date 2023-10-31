@@ -1,13 +1,18 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
+import java.util.ArrayList;
 import java.util.Set;
 
 class Space extends Node {
+  public Inventory itemsInRoom = new Inventory();
   Space (String name) {
     super(name);
   }
-  
+
+
+
+
   /**
    * The welcome function prints out the name of the room and all possible exits.
 

@@ -18,20 +18,37 @@ class World {
    *
    */
   World () {
-    Space entry    = new Space("Entry");
-    Space corridor = new Space("Corridor");
-    Space cave     = new Space("Cave");
-    Space pit      = new Space("Darkest Pit");
-    Space outside  = new Space("Outside");
-    
-    entry.addEdge("door", corridor);
-    corridor.addEdge("door", cave);
-    cave.addEdge("north", pit);
-    cave.addEdge("south", outside);
-    pit.addEdge("door", cave);
-    outside.addEdge("door", cave);
-    
-    this.entry = entry;
+    Space bedchamber    = new Space("Bedchamber");
+    Space office    = new Space("Office");
+    Space houseEntry    = new Space("House");
+    Space outside = new Space("Outside");
+    Space barn     = new Space("Barn");
+    Space well      = new Space("Well");
+    Space field1  = new Space("Field 1");
+    Space field2  = new Space("Field 2");
+    Space field3  = new Space("Field 3");
+
+
+    bedchamber.addEdge("Entry", houseEntry);
+    houseEntry.addEdge("Bedchamber", bedchamber);
+    houseEntry.addEdge("Outside", outside);
+    houseEntry.addEdge("Office", office);
+    office.addEdge("outside", houseEntry);
+    outside.addEdge("House", houseEntry);
+    outside.addEdge("Barn", barn);
+    outside.addEdge("Well", well);
+    outside.addEdge("Field 1", field1);
+    outside.addEdge("Field 2", field2);
+    outside.addEdge("Field 3", field3);
+    field1.addEdge("outside", outside);
+    field2.addEdge("outside", outside);
+    field3.addEdge("outside", outside);
+    barn.addEdge("outside", outside);
+    well.addEdge("outside", outside);
+
+    bedchamber.itemsInRoom.AddItemToInventory(new Item(0, "seeds"));
+
+    this.entry = bedchamber;
   }
   
   /**

@@ -9,7 +9,11 @@ class Game {
   static Command  fallback = new CommandUnknown();
   static Registry registry = new Registry(context, fallback);
   static Scanner  scanner  = new Scanner(System.in);
-  
+
+  public static World getWorld() {
+    return world;
+  }
+
   /**
    * The initRegistry function initializes the registry with a few commands.
    *
@@ -26,6 +30,14 @@ class Game {
     registry.register("bye", cmdExit);
     registry.register("go", new CommandGo());
     registry.register("help", new CommandHelp(registry));
+    registry.register("study", new CommandStudy());
+    registry.register("sleep", new CommandSleep());
+    registry.register("search", new CommandSearch());
+    registry.register("pickup", new CommandPickup());
+    registry.register("interact", new CommandInteract());
+    registry.register("buy", new CommandBuy());
+    registry.register("discard", new CommandDiscard());
+    registry.register("inventory", new CommandInventory());
   }
   
   /**
@@ -45,7 +57,9 @@ class Game {
     
     initRegistry();
     context.getCurrent().welcome();
-    
+
+
+
     while (!context.isDone()) {
       System.out.print("> ");
       String line = scanner.nextLine();
