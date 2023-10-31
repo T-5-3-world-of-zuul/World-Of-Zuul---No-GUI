@@ -3,6 +3,6 @@ public enum DisasterTypes {
     FLOOD,
     NUTRITION_FAILURE,
     PLANT_DESEASE,
-    Græshoppesværme,
+    locusts,
     LARVER,
 }
