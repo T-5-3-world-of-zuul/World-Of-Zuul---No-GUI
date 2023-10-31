@@ -38,4 +38,5 @@ public class EnergySystem {
     public  boolean isOutOfEnergy() {
         return this.energy == 0;
     }
+
 }
