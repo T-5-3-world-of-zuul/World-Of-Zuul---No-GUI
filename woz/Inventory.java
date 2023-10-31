@@ -8,15 +8,17 @@ public class Inventory {
             return;
         }
         inventory.add(item);
+
     }
 
     public void RemoveItemFromInventory(int itemIndex){
-        for (Item item:
-                inventory) {
-            if(item.index == itemIndex)
+        for (int i = 0; i < inventory.size(); i++) {
+            if(inventory.get(i).index == itemIndex)
                 inventory.remove(itemIndex);
         }
     }
+
+
 
     public Item CheckForItem(int itemIndex){
         for (Item item:
