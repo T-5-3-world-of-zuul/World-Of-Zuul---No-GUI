@@ -6,6 +6,7 @@ import java.util.Set;
 
 class Space extends Node {
   public Inventory itemsInRoom = new Inventory();
+  public Inventory itemsUsedInRoom = new Inventory();
   Space (String name) {
     super(name);
   }

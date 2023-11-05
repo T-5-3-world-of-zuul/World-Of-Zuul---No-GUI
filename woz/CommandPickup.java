@@ -4,7 +4,7 @@
 public class CommandPickup extends BaseCommand implements Command{
 
     CommandPickup(){
-        description = "pickup specific item in current room";
+        description = "pickup specific item in current room, (1 parameter : item name)";
     }
 
     @Override

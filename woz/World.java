@@ -1,9 +1,15 @@
 /* World class for modeling the entire in-game world
  */
 
+import java.util.ArrayList;
+
 class World {
   Space entry;
-  
+
+  static ArrayList<Space> rooms = new ArrayList<Space>();
+
+
+
   /**
    * The World function creates a new world with the following spaces:
    *
@@ -28,6 +34,15 @@ class World {
     Space field2  = new Space("Field 2");
     Space field3  = new Space("Field 3");
 
+    World.rooms.add(bedchamber);
+    World.rooms.add(office);
+    World.rooms.add(houseEntry);
+    World.rooms.add(outside);
+    World.rooms.add(barn);
+    World.rooms.add(well);
+    World.rooms.add(field1);
+    World.rooms.add(field2);
+    World.rooms.add(field3);
 
     bedchamber.addEdge("Entry", houseEntry);
     houseEntry.addEdge("Bedchamber", bedchamber);
@@ -37,16 +52,19 @@ class World {
     outside.addEdge("House", houseEntry);
     outside.addEdge("Barn", barn);
     outside.addEdge("Well", well);
-    outside.addEdge("Field 1", field1);
-    outside.addEdge("Field 2", field2);
-    outside.addEdge("Field 3", field3);
+    outside.addEdge("Field_1", field1);
+    outside.addEdge("Field_2", field2);
+    outside.addEdge("Field_3", field3);
     field1.addEdge("outside", outside);
     field2.addEdge("outside", outside);
     field3.addEdge("outside", outside);
     barn.addEdge("outside", outside);
     well.addEdge("outside", outside);
 
-    bedchamber.itemsInRoom.AddItemToInventory(new Item(0, "seeds"));
+    barn.itemsInRoom.AddItemToInventory(ItemRegistry.sandbag);
+    barn.itemsInRoom.AddItemToInventory(ItemRegistry.wheatSeed);
+    barn.itemsInRoom.AddItemToInventory(ItemRegistry.cornSeed);
+
 
     this.entry = bedchamber;
   }
@@ -61,6 +79,15 @@ class World {
    */
   Space getEntry () {
     return entry;
+  }
+
+  public static Space getSpace(String space){
+    for (Space spaces: rooms) {
+      if (spaces.getName().equals(space)){
+        return spaces;
+      }
+    }
+      return null;
   }
 }
 

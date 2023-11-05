@@ -1,22 +1,44 @@
 public class DisasterHandler {
     private DisasterTypes disasterType;
-    Player player;
+    Player player = Player.getPlayer();
 
+    boolean currentIssueSolved = false;
+
+    public boolean getCurrentIssueSolved(){
+        return currentIssueSolved;
+    }
     public DisasterHandler() {
         this.disasterType = null;
     }
 
-    public void summonDisaster(DisasterTypes type, String message) {
+    public void summonDisaster(DisasterTypes type) {
         disasterType = type;
-        System.out.println(message);
+
     }
 
-    public void solveDisaster(int energyRequired) {
-        if (player.getEnergy() < energyRequired) {
-            System.out.println("You don't have enough energy to solve this disaster!");
-        } else {
-            player.removeEnergy(energyRequired);
-            System.out.println("You solved the disaster!");
+    public void solveDisaster() {
+        switch (disasterType) {
+            case DROUGHT:
+                //water pump installed if true
+                if(World.getSpace("Well").itemsUsedInRoom.CheckForItem("water_pump") != null){
+                    currentIssueSolved = true;
+                }
+
+                break;
+            case FLOOD:
+
+                break;
+            case HAIL:
+
+                break;
+            case LARVER:
+
+                break;
+            case locusts:
+
+                break;
+            case PLANT_DESEASE:
+                break;
         }
     }
 
@@ -53,29 +75,30 @@ public class DisasterHandler {
     public String getDisaster(int round) {
         switch (round) {
             case 1:
-                summonDisaster(DisasterTypes.DROUGHT, "Drought has been summoned! You have 10 minutes to prepare!");
-                break;
+                summonDisaster(DisasterTypes.DROUGHT);
+                return "DROUGHT";
             case 2:
-                summonDisaster(DisasterTypes.FLOOD, "Flood has been summoned! You have 10 minutes to prepare!");
-                break;
+                summonDisaster(DisasterTypes.FLOOD);
+                return "FLOOD";
             case 3:
-                summonDisaster(DisasterTypes.HAIL, "Hailstorm is on the way. Prepare!");
-                break;
+                summonDisaster(DisasterTypes.HAIL);
+                return "HAIL";
             case 4:
-                summonDisaster(DisasterTypes.PLANT_DESEASE, "A plant disease has been detected in your crops.");
-                break;
+                summonDisaster(DisasterTypes.PLANT_DESEASE);
+                return "PLANT DISEASE";
             case 5:
-                summonDisaster(DisasterTypes.locusts, "A swarm of locusts appeared around the field. Take precautions immediately.");
-                break;
+                summonDisaster(DisasterTypes.locusts);
+                return "LOCUST SWARMS";
             case 6:
-                summonDisaster(DisasterTypes.LARVER, "Some larvae have been observed on your grains. Get ready.");
-                break;
+                summonDisaster(DisasterTypes.LARVER);
+                return "LARVAE";
             case 7:
-                summonDisaster(DisasterTypes.NUTRITION_FAILURE, "Your crops aren't getting enough nutrition!");
-                break;
+                summonDisaster(DisasterTypes.NUTRITION_FAILURE);
+                return "NUTRITION FAILURE";
             default:
                 return "No disaster for this round";
         }
-        return "Disaster type set for this round.";
+
+
     }
 }
