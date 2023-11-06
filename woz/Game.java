@@ -69,6 +69,7 @@ class Game {
             "\nyou will hopefully learn better how to secure your crops, \nGood Luck"
             );
 
+    QuizRegistry.initQuiz();
 
 
     initRegistry();
