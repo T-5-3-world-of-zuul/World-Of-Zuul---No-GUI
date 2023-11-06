@@ -17,6 +17,8 @@ public class DisasterHandler {
     }
 
     public void solveDisaster() {
+        currentIssueSolved = false;
+
         switch (disasterType) {
             case DROUGHT:
                 //water pump installed if true
@@ -26,9 +28,9 @@ public class DisasterHandler {
 
                 break;
             case FLOOD:
-                Item sandbagField1 = World.getSpace("Field_1").itemsUsedInRoom.CheckForItem("sandbag");
-                Item sandbagField2 = World.getSpace("Field_2").itemsUsedInRoom.CheckForItem("sandbag");
-                Item sandbagField3 = World.getSpace("Field_3").itemsUsedInRoom.CheckForItem("sandbag");
+                Item sandbagField1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("sandbag");
+                Item sandbagField2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("sandbag");
+                Item sandbagField3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("sandbag");
 
                 if(sandbagField1 != null && sandbagField2 != null && sandbagField3 != null){
                     currentIssueSolved = true;

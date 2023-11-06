@@ -45,7 +45,7 @@ public class QuizSystem {
         System.out.println("Type the number next to an answer to pick");
         System.out.print(">");
         int choice = sc.nextInt();
-        System.out.println(choice + "     :" + shuffledQuizArray[choice-1] + ":" + quizArray[0]);
+
         if(shuffledQuizArray[choice-1].equals(quizArray[0])){
             System.out.println("You answered the quiz correctly, and is rewarded with + 10 energy");
             Player.getPlayer().setMaxEnergy(Player.getPlayer().getMaxEnergy()+10);
