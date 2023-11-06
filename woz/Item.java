@@ -25,7 +25,7 @@ public class Item {
             Item.allItems.add(thisItem);
         }else{
             for (Item item: Item.allItems) {
-                if(item.name.equals(thisItem.name)){
+                if(item.name.equalsIgnoreCase(thisItem.name)){
                     break;
                 } else{
                     Item.allItems.add(thisItem);

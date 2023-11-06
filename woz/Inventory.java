@@ -32,7 +32,7 @@ public class Inventory {
     public Item CheckForItem(String itemName){
         for (Item item:
                 inventory){
-            if(item.name.equals(itemName))
+            if(item.name.equalsIgnoreCase(itemName))
                 return item;
         }
         return null;

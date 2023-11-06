@@ -24,23 +24,23 @@ public class CommandInteract extends BaseCommand implements Command{
         
         switch (choosenItem.itemType){
             case tool:
-                if(curremtRoom.getName().equals("Field1") || curremtRoom.getName().equals("Field2") || curremtRoom.getName().equals("Field3")){
+                if(curremtRoom.getName().equalsIgnoreCase("Field1") || curremtRoom.getName().equalsIgnoreCase("Field2") || curremtRoom.getName().equalsIgnoreCase("Field3")){
 
                 }else {
                     System.out.println("Sorry, you can't use that here");
                 }
                 break;
             case sandbags:
-                if(curremtRoom.getName().equals("Field 1") || curremtRoom.getName().equals("Field 2") || curremtRoom.getName().equals("Field 3")){
+                if(curremtRoom.getName().equalsIgnoreCase("Field 1") || curremtRoom.getName().equalsIgnoreCase("Field 2") || curremtRoom.getName().equalsIgnoreCase("Field 3")){
                     System.out.print("Do you want to barricade your field with sandbags \n[YES/NO] \n> ");
                     String choice = sc.nextLine();
                     if(choice.equalsIgnoreCase("YES")){
 
                         curremtRoom.itemsUsedInRoom.AddItemToInventory(choosenItem);
                         context.getPlayerInventory().inventory.remove(choosenItem);
-                        System.out.println("You have barricaded "+curremtRoom+" with sandbags");
+                        System.out.println("You have barricaded "+curremtRoom.getName()+" with sandbags");
                     } else if (choice.equalsIgnoreCase("NO")) {
-                        System.out.println("You chose not to barricade " + curremtRoom +" with sandbags");
+                        System.out.println("You chose not to barricade " + curremtRoom.getName() +" with sandbags");
                     } else{
                         while (!choice.equalsIgnoreCase("YES") && !choice.equalsIgnoreCase("NO")){
                             System.out.print("invalid choice, Do you want to baricade your field with sandbags \n[YES/NO] \n>");
@@ -56,7 +56,7 @@ public class CommandInteract extends BaseCommand implements Command{
 
                 break;
             case waterPump:
-                if(curremtRoom.getName().equals("Well")){
+                if(curremtRoom.getName().equalsIgnoreCase("Well")){
                     System.out.print("Do you want to install a water pump on your well \n[YES/NO] \n> ");
                     String choice = sc.nextLine();
                     if(choice.equalsIgnoreCase("YES")){

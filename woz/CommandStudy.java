@@ -9,7 +9,7 @@ public class CommandStudy extends BaseCommand implements Command{
 
     @Override
     public void execute(Context context, String command, String[] parameters) {
-        if(context.getCurrent().getName().equals("Office")){
+        if(context.getCurrent().getName().equalsIgnoreCase("Office")){
             context.getRoundSystem().disasterHandler.hint();
             Player.getPlayer().removeEnergy(20);
         }else {

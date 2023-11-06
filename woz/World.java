@@ -83,7 +83,7 @@ class World {
 
   public static Space getSpace(String space){
     for (Space spaces: rooms) {
-      if (spaces.getName().equals(space)){
+      if (spaces.getName().equalsIgnoreCase(space)){
         return spaces;
       }
     }
