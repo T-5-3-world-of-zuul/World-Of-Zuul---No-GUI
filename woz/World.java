@@ -48,18 +48,18 @@ class World {
     houseEntry.addEdge("Bedchamber", bedchamber);
     houseEntry.addEdge("Outside", outside);
     houseEntry.addEdge("Office", office);
-    office.addEdge("outside", houseEntry);
+    office.addEdge("Entry", houseEntry);
     outside.addEdge("House", houseEntry);
     outside.addEdge("Barn", barn);
     outside.addEdge("Well", well);
     outside.addEdge("Field_1", field1);
     outside.addEdge("Field_2", field2);
     outside.addEdge("Field_3", field3);
-    field1.addEdge("outside", outside);
-    field2.addEdge("outside", outside);
-    field3.addEdge("outside", outside);
-    barn.addEdge("outside", outside);
-    well.addEdge("outside", outside);
+    field1.addEdge("Outside", outside);
+    field2.addEdge("Outside", outside);
+    field3.addEdge("Outside", outside);
+    barn.addEdge("Outside", outside);
+    well.addEdge("Outside", outside);
 
     barn.itemsInRoom.AddItemToInventory(ItemRegistry.sandbag);
     barn.itemsInRoom.AddItemToInventory(ItemRegistry.wheatSeed);

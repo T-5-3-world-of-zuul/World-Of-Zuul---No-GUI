@@ -18,7 +18,7 @@ class Node {
    *
    */
   Node (String name) {
-    this.name = name;
+    this.name = name.toLowerCase();
 
   }
   
@@ -45,7 +45,7 @@ class Node {
    *
    */
   public void addEdge (String name, Node node) {
-    edges.put(name, node);
+    edges.put(name.toLowerCase(), node);
   }
   
   /**
@@ -58,7 +58,7 @@ class Node {
    *
    */
   public Node followEdge (String direction) {
-    return edges.get(direction);
+    return edges.get(direction.toLowerCase());
   }
 }
 

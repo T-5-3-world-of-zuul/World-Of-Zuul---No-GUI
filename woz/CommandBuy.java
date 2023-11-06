@@ -24,7 +24,7 @@ public class CommandBuy extends BaseCommand implements Command {
             System.out.print(">");
             String choice = sc.nextLine();
 
-            if(choice.equals("cancel")){
+            if(choice.equalsIgnoreCase("cancel")){
                 System.out.println("you ended your order");
                 transactionComplete = true;
                 break;
@@ -50,7 +50,7 @@ public class CommandBuy extends BaseCommand implements Command {
     public Item findItem(String itemName){
         for (Item item: Item.getItemList()) {
 
-            if (item.name.equals(itemName)){
+            if (item.name.equalsIgnoreCase(itemName)){
                 return item;
             }
 

@@ -34,13 +34,15 @@ public class CommandInteract extends BaseCommand implements Command{
                 if(curremtRoom.getName().equals("Field 1") || curremtRoom.getName().equals("Field 2") || curremtRoom.getName().equals("Field 3")){
                     System.out.print("Do you want to barricade your field with sandbags \n[YES/NO] \n> ");
                     String choice = sc.nextLine();
-                    if(choice.equals("YES")){
+                    if(choice.equalsIgnoreCase("YES")){
+
                         curremtRoom.itemsUsedInRoom.AddItemToInventory(choosenItem);
+                        context.getPlayerInventory().inventory.remove(choosenItem);
                         System.out.println("You have barricaded "+curremtRoom+" with sandbags");
-                    } else if (choice.equals("NO")) {
+                    } else if (choice.equalsIgnoreCase("NO")) {
                         System.out.println("You chose not to barricade " + curremtRoom +" with sandbags");
                     } else{
-                        while (!choice.equals("YES") && !choice.equals("NO")){
+                        while (!choice.equalsIgnoreCase("YES") && !choice.equalsIgnoreCase("NO")){
                             System.out.print("invalid choice, Do you want to baricade your field with sandbags \n[YES/NO] \n>");
                             choice = sc.nextLine();
                         }
@@ -57,13 +59,14 @@ public class CommandInteract extends BaseCommand implements Command{
                 if(curremtRoom.getName().equals("Well")){
                     System.out.print("Do you want to install a water pump on your well \n[YES/NO] \n> ");
                     String choice = sc.nextLine();
-                    if(choice.equals("YES")){
+                    if(choice.equalsIgnoreCase("YES")){
                         curremtRoom.itemsUsedInRoom.AddItemToInventory(choosenItem);
+                        context.getPlayerInventory().inventory.remove(choosenItem);
                         System.out.println("You have installed a Water pump on the well");
-                    } else if (choice.equals("NO")) {
+                    } else if (choice.equalsIgnoreCase("NO")) {
                         System.out.println("You chose not to install a water pump ");
                     } else{
-                        while (!choice.equals("YES") && !choice.equals("NO")){
+                        while (!choice.equalsIgnoreCase("YES") && !choice.equalsIgnoreCase("NO")){
                             System.out.print("invalid choice, Do you want to install a Water pump on the well \n[YES/NO] \n>");
                             choice = sc.nextLine();
                         }
