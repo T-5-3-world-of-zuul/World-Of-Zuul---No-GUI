@@ -8,22 +8,34 @@ public class Inventory {
             return;
         }
         inventory.add(item);
+
     }
 
     public void RemoveItemFromInventory(int itemIndex){
-        for (Item item:
-                inventory) {
-            if(item.index == itemIndex)
+        for (int i = 0; i < inventory.size(); i++) {
+            if(inventory.get(i).index == itemIndex)
                 inventory.remove(itemIndex);
         }
     }
 
-    public boolean CheckForItem(int itemIndex){
+
+
+    public Item CheckForItem(int itemIndex){
         for (Item item:
                 inventory){
             if(item.index == itemIndex)
-                return true;
+                return item;
         }
-        return false;
+        return null;
     }
+
+    public Item CheckForItem(String itemName){
+        for (Item item:
+                inventory){
+            if(item.name.equalsIgnoreCase(itemName))
+                return item;
+        }
+        return null;
+    }
+
 }

@@ -3,6 +3,7 @@ public class EnergySystem {
     private int maxEnergy;
     public EnergySystem(int maxEnergy) {
         this.maxEnergy = maxEnergy;
+        this.energy = maxEnergy;
     }
 
     public int getEnergy() {

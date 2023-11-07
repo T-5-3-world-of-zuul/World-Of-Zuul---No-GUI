@@ -1,13 +1,13 @@
-public class ScoreSystem extends EnergySystem {
-    private final int score;
-    public ScoreSystem(int maxEnergy, int score) {
-        super(maxEnergy);
-        this.score = score;
-    }
+public class ScoreSystem {
+    static int score;
+    static int bestEnergyUsedCurrentRound;
+    static Player player = Player.getPlayer();;
+
+
 
 
     public int getScore() {
-        return this.score;
+        return score;
     }
 
     /**
@@ -15,16 +15,32 @@ public class ScoreSystem extends EnergySystem {
      * and the second being an action that would have been more effective. The function then calculates how much better or worse
      * off a player is for taking their chosen action instead of what would have been more effective. This score is returned as an int.
      *
-     * @param PlayerAction playerAction Determine the energy used by the player
-     * @param PlayerAction mostEffectiveAction Compare the energy used by the player action to the energy required for most effective action
+     *
      */
-    public void calculateScore(PlayerAction playerAction, PlayerAction mostEffectiveAction) {
-        int score = 0;
-        int energyDifference = mostEffectiveAction.getEnergyRequired(playerAction) - playerAction.getEnergyUsed();
-        if (energyDifference > 0) {
-            score += energyDifference;
-        } else {
-            score -= Math.abs(energyDifference);
+    public static int calculateScore(Context context) {
+
+        switch (context.getRoundSystem().round){
+            case 0:
+                break;
+            case 1:
+                bestEnergyUsedCurrentRound = 20;
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
         }
+
+
+        int energyDifference =  bestEnergyUsedCurrentRound - (player.getMaxEnergy() - player.getEnergy());
+
+        score += energyDifference + 100;
+        return energyDifference + 100;
     }
 }

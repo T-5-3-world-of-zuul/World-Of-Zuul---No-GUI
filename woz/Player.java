@@ -1,5 +1,8 @@
 public class Player extends EnergySystem {
     String name;
+
+    static Player player = new Player(100, "John Hitler");
+
     public Player(int maxEnergy, String name) {
         super(maxEnergy);
         this.name = name;
@@ -21,5 +24,9 @@ public class Player extends EnergySystem {
     @Override
     public int getMaxEnergy() {
         return super.getMaxEnergy();
+    }
+
+    public static Player getPlayer(){
+        return player;
     }
 }
