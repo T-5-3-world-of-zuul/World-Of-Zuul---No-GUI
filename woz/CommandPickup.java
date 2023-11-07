@@ -18,7 +18,7 @@ public class CommandPickup extends BaseCommand implements Command{
         Item item = context.getCurrent().itemsInRoom.CheckForItem(parameters[0]);
         if(item != null){
             context.getPlayerInventory().AddItemToInventory(item);
-            context.getCurrent().itemsInRoom.RemoveItemFromInventory(item.index);
+            context.getCurrent().itemsInRoom.inventory.remove(item);
             System.out.println("You picked up : " + item.name);
         } else{
             System.out.println("Sorry, What do you want to pickup?");

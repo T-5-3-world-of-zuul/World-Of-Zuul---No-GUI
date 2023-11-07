@@ -15,7 +15,7 @@ public class CommandDiscard extends BaseCommand implements Command{
         Item item = context.getPlayerInventory().CheckForItem(parameters[0]);
         if(item != null){
             context.getCurrent().itemsInRoom.AddItemToInventory(item);
-            context.getPlayerInventory().RemoveItemFromInventory(item.index);
+            context.getPlayerInventory().inventory.remove(item);
             System.out.println("You discarded : " + item.name);
         } else{
             System.out.println("Sorry you dont have " + parameters[0] + " in your inventory");
