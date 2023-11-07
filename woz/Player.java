@@ -1,7 +1,7 @@
 public class Player extends EnergySystem {
     String name;
 
-    static Player player = new Player(100, "John Hitler");
+    static Player player = new Player(100, "Player 1");
 
     public Player(int maxEnergy, String name) {
         super(maxEnergy);
