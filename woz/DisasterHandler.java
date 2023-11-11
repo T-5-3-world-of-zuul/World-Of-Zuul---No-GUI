@@ -1,112 +1,96 @@
 public class DisasterHandler {
-    private DisasterTypes disasterType;
-    Player player = Player.getPlayer();
-
-    boolean currentIssueSolved = false;
-
-    public boolean getCurrentIssueSolved(){
-        return currentIssueSolved;
+    private DisasterType type;
+    public enum DisasterType {
+        DROUGHT, FLOOD, HAIL, LARVAE, LOCUST_SWARMS, PLANT_DISEASE, NUTRITION_FAILURE
     }
+
     public DisasterHandler() {
-        this.disasterType = null;
+        this.type = null;
     }
 
-    public void summonDisaster(DisasterTypes type) {
-        disasterType = type;
+    public boolean currentDisasterSolved = false;
 
+    public boolean isCurrentDisasterSolved() {
+        return currentDisasterSolved;
+    }
+
+    public void summonDisaster(DisasterType t, String disasterName) {
+        this.type = t;
+        System.out.println(disasterName + " has been summoned");
     }
 
     public void solveDisaster() {
-        currentIssueSolved = false;
-
-        switch (disasterType) {
+        switch (type) {
             case DROUGHT:
-                //water pump installed if true
                 if(World.getSpace("Well").itemsUsedInRoom.CheckForItem("water_pump") != null){
-                    currentIssueSolved = true;
+                    currentDisasterSolved = true;
                 }
-
                 break;
             case FLOOD:
                 Item sandbagField1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("sandbag");
                 Item sandbagField2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("sandbag");
                 Item sandbagField3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("sandbag");
-
                 if(sandbagField1 != null && sandbagField2 != null && sandbagField3 != null){
-                    currentIssueSolved = true;
+                    currentDisasterSolved = true;
                 }
                 break;
             case HAIL:
 
                 break;
-            case LARVER:
+            case LARVAE:
 
                 break;
-            case locusts:
+            case LOCUST_SWARMS:
 
                 break;
-            case PLANT_DESEASE:
+            case PLANT_DISEASE:
                 break;
-        }
-    }
-
-    public void hint() {
-        if (disasterType != null) {
-            switch (disasterType) {
-                case DROUGHT:
-                    System.out.println("You can build a pump to raise water quickly.");
-                    break;
-                case FLOOD:
-                    System.out.println("Building sand barriers around the farm field may help you solve the problem.");
-                    break;
-                case HAIL:
-                    System.out.println("Using anti-Hail nets is a great idea to preserve your grains.");
-                    break;
-                case LARVER:
-                    System.out.println("You can use pesticides to control larvae.");
-                    break;
-                case locusts:
-                    System.out.println("Using a drone is a great way to stop a swarm of locusts.");
-                    break;
-                case PLANT_DESEASE:
-                    System.out.println("Reduce the number of larvae that survive the winter by incorporating crop residues into the soil by plowing. This can help break down the residues and reduce the number of larvae.");
-                    break;
-                default:
-                    System.out.println("NPK fertilizers may help enrich the soil.");
-                    break;
-            }
-        } else {
-            System.out.println("No disaster is currently active.");
         }
     }
 
     public String getDisaster(int round) {
         switch (round) {
             case 1:
-                summonDisaster(DisasterTypes.DROUGHT);
+                this.type = DisasterType.DROUGHT;
+                summonDisaster(DisasterType.DROUGHT, "DROUGHT");
                 return "DROUGHT";
             case 2:
-                summonDisaster(DisasterTypes.FLOOD);
+                this.type = DisasterType.FLOOD;
+                summonDisaster(DisasterType.FLOOD, "Flood");
                 return "FLOOD";
             case 3:
-                summonDisaster(DisasterTypes.HAIL);
+                this.type = DisasterType.HAIL;
+                summonDisaster(DisasterType.HAIL, "Hail");
                 return "HAIL";
             case 4:
-                summonDisaster(DisasterTypes.PLANT_DESEASE);
+                this.type = DisasterType.DROUGHT;
+                summonDisaster(DisasterType.PLANT_DISEASE, "Plant Disease");
                 return "PLANT DISEASE";
             case 5:
-                summonDisaster(DisasterTypes.locusts);
+                this.type = DisasterType.LOCUST_SWARMS;
+                summonDisaster(DisasterType.LOCUST_SWARMS, "Locust Swarms");
                 return "LOCUST SWARMS";
             case 6:
-                summonDisaster(DisasterTypes.LARVER);
+                this.type = DisasterType.LARVAE;
+                summonDisaster(DisasterType.LARVAE, "Larvae");
                 return "LARVAE";
             case 7:
-                summonDisaster(DisasterTypes.NUTRITION_FAILURE);
+                this.type = DisasterType.NUTRITION_FAILURE;
+                summonDisaster(DisasterType.NUTRITION_FAILURE, "Nutrition Failure");
                 return "NUTRITION FAILURE";
             default:
-                return "No disaster for this round";
+                return "Failed to summon disaster";
         }
-
-
+    }
+    public void hint() {
+        switch (type) {
+            case DROUGHT -> System.out.println("You need to install a water pump");
+            case FLOOD -> System.out.println("You need to place sandbags in all fields");
+            case HAIL -> System.out.println("You need to install a hail net");
+            case LARVAE -> System.out.println("You can use pesticides to control larvae.");
+            case LOCUST_SWARMS -> System.out.println("Using a drone is a great way to stop a swarm of locusts.");
+            case PLANT_DISEASE -> System.out.println("Reduce the number of larvae that survive the winter by incorporating crop residues into the soil by plowing. This can help break down the residues and reduce the number of larvae.");
+            default -> System.out.println("NPK fertilizers may help enrich the soil.");
+        }
     }
 }

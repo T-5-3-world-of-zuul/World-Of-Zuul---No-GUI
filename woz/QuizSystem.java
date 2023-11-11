@@ -1,11 +1,10 @@
 
 import java.util.Random;
 import java.util.Scanner;
-
 public class QuizSystem {
     private String quizQuestion;
     private String[] quizArray, shuffledQuizArray;
-
+    PlayerEnergy player = PlayerEnergy.getPlayer();
     QuizSystem (String quizQuestion, String quizCorrectAnswer, String quizWrongAnswer1, String quizWrongAnswer2, String quizWrongAnswer3) {
         this.quizQuestion = quizQuestion;
 
@@ -48,12 +47,11 @@ public class QuizSystem {
 
         if(shuffledQuizArray[choice-1].equals(quizArray[0])){
             System.out.println("You answered the quiz correctly, and is rewarded with + 10 energy");
-            Player.getPlayer().setMaxEnergy(Player.getPlayer().getMaxEnergy()+10);
+            player.setMaxEnergy(player.getMaxEnergy()+10);
         }else {
             System.out.println("You answered the quiz wrongly, you are not rewarded");
         }
 
         QuizRegistry.quiz.remove(0);
-
     }
 }
