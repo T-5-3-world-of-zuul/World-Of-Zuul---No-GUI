@@ -82,15 +82,22 @@ public class DisasterHandler {
                 return "Failed to summon disaster";
         }
     }
-    public void hint() {
-        switch (type) {
-            case DROUGHT -> System.out.println("You need to install a water pump");
-            case FLOOD -> System.out.println("You need to place sandbags in all fields");
-            case HAIL -> System.out.println("You need to install a hail net");
-            case LARVAE -> System.out.println("You can use pesticides to control larvae.");
-            case LOCUST_SWARMS -> System.out.println("Using a drone is a great way to stop a swarm of locusts.");
-            case PLANT_DISEASE -> System.out.println("Reduce the number of larvae that survive the winter by incorporating crop residues into the soil by plowing. This can help break down the residues and reduce the number of larvae.");
-            default -> System.out.println("NPK fertilizers may help enrich the soil.");
+    public void hint(int round) {
+        String hints = switch (type) {
+            case DROUGHT -> "You need to install a water pump in the well";
+            case FLOOD -> "You need to place sandbags in all fields";
+            case HAIL -> "You need to install a hail net";
+            case LARVAE -> "You can use pesticides to control larvae.";
+            case LOCUST_SWARMS -> "Using a drone is a great way to stop a swarm of locusts.";
+            case PLANT_DISEASE -> "Reduce the number of larvae that survive the winter by incorporating crop residues into the soil by plowing. This can help break down the residues and reduce the number of larvae.";
+            default -> "NPK fertilizers may help enrich the soil.";
+        };
+
+        // Check if the round is within the valid range of hints
+        if (round >= 0 && round < hints.length()) {
+            System.out.println(hints);
+        } else {
+            System.out.println("No specific hint available for this round.");
         }
     }
 }
