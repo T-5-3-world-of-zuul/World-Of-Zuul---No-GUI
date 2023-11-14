@@ -3,8 +3,7 @@ import java.util.Scanner;
 public class CommandBuy extends BaseCommand implements Command {
 
     boolean transactionComplete;
-
-    Player player = Player.getPlayer();
+    PlayerEnergy player = PlayerEnergy.getPlayer();
     CommandBuy(){
         description = "buy item and put in barn, (usable only in bedchamber) (0 parameters)";
     }
@@ -65,7 +64,7 @@ public class CommandBuy extends BaseCommand implements Command {
             System.out.println("Item : " + item.name + "\tPrice: " + item.price + " energy");
         }
         System.out.println("---------------------");
-        System.out.println("Energy : "+player.getEnergy());
+        System.out.println("Energy : "+ player.getEnergy());
         System.out.println("type the name of item to buy \ntype 'cancel' if you wish to end order");
 
     }

@@ -1,7 +1,6 @@
 /* Space class for modeling spaces (rooms, caves, ...)
  */
 
-import java.util.ArrayList;
 import java.util.Set;
 
 class Space extends Node {

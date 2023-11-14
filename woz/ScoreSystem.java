@@ -1,9 +1,7 @@
 public class ScoreSystem {
     static int score;
     static int bestEnergyUsedCurrentRound;
-    static Player player = Player.getPlayer();;
-
-
+    static PlayerEnergy player = PlayerEnergy.getPlayer();
 
 
     public int getScore() {
