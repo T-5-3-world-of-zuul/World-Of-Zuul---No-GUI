@@ -41,7 +41,11 @@ public class Item {
         tool,
         sandbags,
         seeds,
-        waterPump
+        waterPump,
+        fertilizer,
+        plantPesticide,
+        pesticide,
+        antihailnet,
     }
 
     public static ArrayList<Item> getItemList(){

@@ -39,37 +39,35 @@ public class DisasterHandler {
                 Item antihailnet2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
                 Item antihailnet3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
                 if(antihailnet1 != null && antihailnet2 != null && antihailnet3 != null){
-                    currentIssueSolved = true;
+                    currentDisasterSolved = true;
                 }
                 break;
-<<<<<<< Updated upstream
-            case LARVAE:
 
-                break;
+
             case LOCUST_SWARMS:
-
-                break;
-            case PLANT_DISEASE:
-=======
-
-            case locusts:
                 Item pesticide1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
                 Item pesticide2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
                 Item pesticide3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
                 if(pesticide1 != null && pesticide2 != null && pesticide3 != null) {
-                    currentIssueSolved = true;
+                    currentDisasterSolved = true;
                 }
                 break;
-            case PLANT_DESEASE:
+            case PLANT_DISEASE:
                 Item plantPesticide1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
                 Item plantPesticide2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
                 Item plantPesticide3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
                 if(plantPesticide1 != null && plantPesticide2 != null && plantPesticide3 != null) {
-                    currentIssueSolved = true;
+                    currentDisasterSolved = true;
                 }
->>>>>>> Stashed changes
                 break;
-                case
+            case NUTRITION_FAILURE:
+                Item fertilizer1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
+                Item fertilizer2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
+                Item fertilizer3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
+                if(fertilizer1 != null && fertilizer2 != null && fertilizer3 != null) {
+                    currentDisasterSolved = true;
+                }
+
         }
     }
 
@@ -111,10 +109,9 @@ public class DisasterHandler {
         String hints = switch (type) {
             case DROUGHT -> "You need to install a water pump in the well";
             case FLOOD -> "You need to place sandbags in all fields";
-            case HAIL -> "You need to install a hail net";
-            case LARVAE -> "You can use pesticides to control larvae.";
-            case LOCUST_SWARMS -> "Using a drone is a great way to stop a swarm of locusts.";
-            case PLANT_DISEASE -> "Reduce the number of larvae that survive the winter by incorporating crop residues into the soil by plowing. This can help break down the residues and reduce the number of larvae.";
+            case HAIL -> "You need to build a hail net";
+            case LOCUST_SWARMS -> "Using pesticides is a great way to stop a swarm of locusts.";
+            case PLANT_DISEASE -> "Using pesticides is a great way to stop plant disease.";
             default -> "NPK fertilizers may help enrich the soil.";
         };
 
