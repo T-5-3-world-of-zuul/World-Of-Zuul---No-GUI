@@ -38,4 +38,13 @@ public class Inventory {
         return null;
     }
 
+    public Boolean BoolCheckForItemType(Item.itemTypes itemTypes){
+        for (Item item:
+                inventory){
+            if(item.itemType.equals(itemTypes))
+                return true;
+        }
+        return false;
+    }
+
 }

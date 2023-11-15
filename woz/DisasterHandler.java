@@ -20,9 +20,16 @@ public class DisasterHandler {
     }
 
     public void solveDisaster() {
+        boolean seedsPlantedF1 = World.getSpace("Field 1").itemsUsedInRoom.BoolCheckForItemType(Item.itemTypes.seeds);
+        boolean seedsPlantedF2 = World.getSpace("Field 2").itemsUsedInRoom.BoolCheckForItemType(Item.itemTypes.seeds);
+        boolean seedsPlantedF3 = World.getSpace("Field 3").itemsUsedInRoom.BoolCheckForItemType(Item.itemTypes.seeds);
+        boolean seedsPlantedEverywhere = false;
+        if(seedsPlantedF1 && seedsPlantedF2 && seedsPlantedF3){
+            seedsPlantedEverywhere = true;
+        }
         switch (type) {
             case DROUGHT:
-                if(World.getSpace("Well").itemsUsedInRoom.CheckForItem("water_pump") != null){
+                if(World.getSpace("Well").itemsUsedInRoom.CheckForItem("water_pump") != null && seedsPlantedEverywhere){
                     currentDisasterSolved = true;
                 }
                 break;
@@ -30,7 +37,7 @@ public class DisasterHandler {
                 Item sandbagField1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("sandbag");
                 Item sandbagField2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("sandbag");
                 Item sandbagField3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("sandbag");
-                if(sandbagField1 != null && sandbagField2 != null && sandbagField3 != null){
+                if(sandbagField1 != null && sandbagField2 != null && sandbagField3 != null && seedsPlantedEverywhere){
                     currentDisasterSolved = true;
                 }
                 break;
@@ -38,7 +45,7 @@ public class DisasterHandler {
                 Item antihailnet1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
                 Item antihailnet2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
                 Item antihailnet3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
-                if(antihailnet1 != null && antihailnet2 != null && antihailnet3 != null){
+                if(antihailnet1 != null && antihailnet2 != null && antihailnet3 != null && seedsPlantedEverywhere){
                     currentDisasterSolved = true;
                 }
                 break;
@@ -48,7 +55,7 @@ public class DisasterHandler {
                 Item pesticide1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
                 Item pesticide2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
                 Item pesticide3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
-                if(pesticide1 != null && pesticide2 != null && pesticide3 != null) {
+                if(pesticide1 != null && pesticide2 != null && pesticide3 != null && seedsPlantedEverywhere) {
                     currentDisasterSolved = true;
                 }
                 break;
@@ -56,7 +63,7 @@ public class DisasterHandler {
                 Item plantPesticide1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
                 Item plantPesticide2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
                 Item plantPesticide3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
-                if(plantPesticide1 != null && plantPesticide2 != null && plantPesticide3 != null) {
+                if(plantPesticide1 != null && plantPesticide2 != null && plantPesticide3 != null && seedsPlantedEverywhere) {
                     currentDisasterSolved = true;
                 }
                 break;
@@ -64,7 +71,7 @@ public class DisasterHandler {
                 Item fertilizer1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
                 Item fertilizer2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
                 Item fertilizer3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
-                if(fertilizer1 != null && fertilizer2 != null && fertilizer3 != null) {
+                if(fertilizer1 != null && fertilizer2 != null && fertilizer3 != null && seedsPlantedEverywhere) {
                     currentDisasterSolved = true;
                 }
 
