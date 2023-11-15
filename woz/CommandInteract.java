@@ -54,7 +54,25 @@ public class CommandInteract extends BaseCommand implements Command {
                 }
                 break;
             case seeds:
+                if(curremtRoom.getName().equalsIgnoreCase("Field 1") || curremtRoom.getName().equalsIgnoreCase("Field 2") || curremtRoom.getName().equalsIgnoreCase("Field 3")){
+                    System.out.print("Do you want to plant: " + choosenItem.name + " in : " + curremtRoom.getName() + "\n[YES/NO] \n> ");
+                    String choice = sc.nextLine();
+                    if (choice.equalsIgnoreCase("YES")) {
 
+                        curremtRoom.itemsUsedInRoom.AddItemToInventory(choosenItem);
+                        context.getPlayerInventory().inventory.remove(choosenItem);
+                        System.out.println("You have planted " + choosenItem.name + " in : "+ curremtRoom.getName());
+
+                    } else if (choice.equalsIgnoreCase("NO")) {
+                        System.out.println("You chose not to plant " + choosenItem.name + " in :" + curremtRoom.getName());
+                    } else {
+                        while (!choice.equalsIgnoreCase("YES") && !choice.equalsIgnoreCase("NO")) {
+                            System.out.print("invalid choice, Do you want to plant" + choosenItem.name + " in : " + curremtRoom.getName() + "\n[YES/NO] \n>");
+                            choice = sc.nextLine();
+                        }
+
+                    }
+                }
                 break;
             case waterPump:
                 if (curremtRoom.getName().equalsIgnoreCase("Well")) {
