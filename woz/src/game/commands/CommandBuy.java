@@ -69,7 +69,7 @@ public class CommandBuy extends BaseCommand implements Command {
         System.out.println("---------------------");
         System.out.println("List of buyable items:");
         for (Item item: Item.getItemList()) {
-            System.out.println("src.game.Item : " + item.name + "\tPrice: " + item.price + " energy");
+            System.out.println("Item : " + item.name + "\tPrice: " + item.price + " energy");
         }
         System.out.println("---------------------");
         System.out.println("Energy : "+ player.getEnergy());

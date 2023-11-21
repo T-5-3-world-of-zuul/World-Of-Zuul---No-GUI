@@ -1,0 +1,7 @@
+#DisplayPane {
+    -fx-background-color: black;
+    -fx-min-height: 100;
+    -fx-max-height: 100;
+    -fx-min-width: 100;
+    -fx-max-width: 100;
+}

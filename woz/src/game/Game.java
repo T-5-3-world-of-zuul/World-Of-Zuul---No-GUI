@@ -1,7 +1,11 @@
 package src.game;
 /* Main class for launching the game */
 import java.util.Scanner;
+
+import com.sun.tools.javac.Main;
+import javafx.application.Application;
 import src.game.commands.*;
+import src.gui.MainApp;
 
 public class Game {
   static World    world    = new World();
@@ -57,6 +61,8 @@ public class Game {
    *
    */
   public static void main (String[] args) {
+      Application.launch(MainApp.class, args);
+
     System.out.println(
             "Welcome to the world of zuul,"+
             "\nThis game is a educational game,"+
