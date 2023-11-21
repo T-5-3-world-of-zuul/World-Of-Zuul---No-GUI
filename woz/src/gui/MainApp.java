@@ -4,8 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
 import java.io.IOException;
+
+
 
 public class MainApp extends Application {
     @Override
@@ -18,7 +22,12 @@ public class MainApp extends Application {
         scene.getStylesheets().add(css);
 
         mainStage.setTitle("Crop Guard");
-        mainStage.setFullScreen(true);
+       // mainStage.setFullScreen(true);
+
+        Image icon = new Image("src/images/CropGuardLogo.png");
+        mainStage.getIcons().add(icon);
+
+
 
         mainStage.setScene(scene);
         mainStage.show();
