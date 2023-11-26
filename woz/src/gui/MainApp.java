@@ -6,27 +6,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import java.io.IOException;
+
 public class MainApp extends Application {
     @Override
-
-    public void start(Stage mainStage){
-        try{
+    public void start (Stage mainStage) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("IntroScene.FXML"));
             Scene scene = new Scene(root);
 
             mainStage.setTitle("Crop Guard");
-            Image icon = new Image("src/images/CropGuardLogo.png");
+            Image icon = new Image("/src/images/CropGuardLogo.png");
             mainStage.getIcons().add(icon);
 
             mainStage.setScene(scene);
             mainStage.show();
-
-
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-
-
     }
     public static void main(String[] args){
         launch(args);
