@@ -13,23 +13,22 @@ public class Game {
   static Registry registry = new Registry(context, fallback);
   static Scanner  scanner  = new Scanner(System.in);
 
-
-
   public static World getWorld() {
     return world;
   }
 
+  public static Context getContext() {
+    return context;
+  }
   public static Scanner getScanner(){
     return scanner;
   }
+
+  public static Registry getRegistry() {
+    return registry;
+  }
   /**
    * The initRegistry function initializes the registry with a few commands.
-   *
-   *
-   *
-   *
-   * @return A commandregistry object
-   *
    */
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
@@ -54,25 +53,20 @@ public class Game {
    * It initializes a new game context, and then enters a loop that reads user input from stdin,
    * dispatches it to the command registry for processing, and repeats until either an exit command is issued or
    * an error occurs. The main function also prints out welcome messages at startup and goodbye messages when exiting.
-
-   *
-   * @param String args[] Pass command line arguments to the program
-   *
-   * @return Nothing (void)
-   *
    */
   public static void main (String[] args) {
       QuizRegistry.initQuiz();
-
       initRegistry();
-      context.getCurrent().welcome();
+
       Application.launch(MainApp.class, args);
 
+     /*
     while (!context.isDone()) {
       System.out.print("> ");
       String line = scanner.nextLine();
       registry.dispatch(line);
     }
+     */
     System.out.println("Game Over 😥");
   }
 }

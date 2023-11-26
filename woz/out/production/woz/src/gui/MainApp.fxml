@@ -11,6 +11,9 @@
    <children>
       <AnchorPane fx:id="DisplayPane" styleClass="DisplayPane" prefHeight="460.0" prefWidth="760.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <ImageView fx:id="BackgroundImg" fitWidth="760" fitHeight="460" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0">
+               <Image url="/src/images/BedchamberBackground.png"/>
+            </ImageView>
             <Label fx:id="RoomLabel" text="Room:" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="0"/>
             <Label fx:id="CurrentRoomLabel" text="Nothing" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="30"/>
 
@@ -23,6 +26,7 @@
             <Label fx:id="CurrentYearLabel" text="N/A" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="72"/>
          </children>
       </AnchorPane>
+
       <VBox fx:id="NavigationPane" styleClass="NavigationPane" layoutX="858.0" layoutY="69.0" prefHeight="460.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
       </VBox>
