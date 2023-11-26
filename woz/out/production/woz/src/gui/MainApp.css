@@ -1,40 +1,51 @@
-#DisplayPane {
+.DisplayPane {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-background-color: white;
+}
+
+.DisplayPane Label {
+    -fx-font-size: 24;
+    -fx-pref-height: 30;
+    -fx-pref-width: 120;
+}
+
+
+
+.NavigationPane {
+    -fx-border-color: black;
+    -fx-border-width: 2;
+    -fx-background-color: white;
+
+
+
+
+}
+
+.InventoryPane {
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
 
 
 }
-#NavigationPane {
-    -fx-border-color: black;
-    -fx-border-width: 2;
-    -fx-background-color: white;
 
-
-
-
-}
-#InventoryPane {
+.CommandPane {
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
 
 
 }
-#CommandPane {
+
+.OutputPane {
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
 
 
 }
-#OutputPane {
-    -fx-border-color: black;
-    -fx-border-width: 2;
-    -fx-background-color: white;
 
-
-}
-#ContainerPane {
+.ContainerPane {
     -fx-background-color: lightgrey;
 }

@@ -24,12 +24,13 @@ public class Space extends Node {
    *
    */
   public void welcome () {
-    System.out.println("You are now at "+name);
+   System.out.println("You are now at "+name);
     Set<String> exits = edges.keySet();
     System.out.println("Current exits are:");
     for (String exit: exits) {
       System.out.println(" - "+exit);
     }
+
   }
   
   /**

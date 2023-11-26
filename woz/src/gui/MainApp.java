@@ -15,20 +15,13 @@ public class MainApp extends Application {
             Scene scene = new Scene(root);
 
             mainStage.setTitle("Crop Guard");
+            mainStage.setResizable(false);
             Image icon = new Image("/src/images/CropGuardLogo.png");
             mainStage.getIcons().add(icon);
 
             mainStage.setScene(scene);
             mainStage.show();
     }
-    public static void main(String[] args){
-        launch(args);
-
-
-    }
-
-
-
 }
 
 
