@@ -17,10 +17,14 @@
     -fx-border-width: 2;
     -fx-background-color: white;
 
-
-
-
 }
+
+.NavigationPane Button {
+    -fx-font-weight: bold;
+    -fx-font-size: 24;
+}
+
+
 
 .InventoryPane {
     -fx-border-color: black;
@@ -34,8 +38,11 @@
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
+}
 
-
+.CommandPane Button {
+    -fx-font-weight: bold;
+    -fx-font-size: 24;
 }
 
 .OutputPane {

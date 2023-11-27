@@ -60,13 +60,13 @@ public class Game {
 
       Application.launch(MainApp.class, args);
 
-     /*
+
     while (!context.isDone()) {
       System.out.print("> ");
       String line = scanner.nextLine();
       registry.dispatch(line);
     }
-     */
+
     System.out.println("Game Over 😥");
   }
 }

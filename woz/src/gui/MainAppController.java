@@ -1,5 +1,6 @@
 package src.gui;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -8,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-import java.awt.event.ActionEvent;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -29,6 +30,8 @@ public class MainAppController implements Initializable {
     private VBox NavigationPane;
     @FXML
     private ImageView BackgroundImg;
+    @FXML
+    private VBox InventoryPaneList;
 
     private Context context;
 
@@ -40,6 +43,7 @@ public class MainAppController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         updateDisplayPanel();
         updateNavigationPanel();
+        updateInventoryPane();
     }
 
     private void updateDisplayPanel() {
@@ -52,22 +56,70 @@ public class MainAppController implements Initializable {
         ArrayList<Button> buttonList = new ArrayList<>();
         Set<String> exits = context.getCurrent().getEdges().keySet();
         for (String exit: exits) {
-            Button button = new Button(exit);
+            String label = exit.substring(0, 1).toUpperCase() + exit.substring(1);
+            Button button = new Button(label);
             button.setPrefHeight(60);
             button.setPrefWidth(300);
             button.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
                 @Override
                 public void handle(javafx.event.ActionEvent event) {
-                    Game.getRegistry().dispatch("go " + button.getText());
+                    Game.getRegistry().dispatch("go " + button.getText().toLowerCase());
                     updateNavigationPanel();
                     updateDisplayPanel();
                 }
             });
-
             buttonList.add(button);
         }
-
         NavigationPane.getChildren().clear();
         NavigationPane.getChildren().addAll(buttonList);
     }
+
+    private void updateInventoryPane() {
+        ArrayList<Button> buttonList = new ArrayList<>();
+        for (int i = 0 ; i < context.getPlayerInventory().inventory.size() ; i++) {
+            String label = context.getPlayerInventory().inventory.get(i).name.substring(0, 1).toUpperCase() + context.getPlayerInventory().inventory.get(i).name.substring(1);
+            Button button = new Button(label);
+            button.setPrefHeight(40);
+            button.setPrefWidth(300);
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Game.getRegistry().dispatch("interact " + button.getText().toLowerCase());
+                    updateInventoryPane();
+                }
+            });
+            buttonList.add(button);
+        }
+        InventoryPaneList.getChildren().clear();
+        InventoryPaneList.getChildren().addAll(buttonList);
+    }
+
+    @FXML
+    public void sleepCommand(ActionEvent event) throws IOException{
+        Game.getRegistry().dispatch("sleep");
+        updateDisplayPanel();
+    }
+    @FXML
+    public void studyCommand(ActionEvent event) {
+        Game.getRegistry().dispatch("study");
+        updateDisplayPanel();
+    }
+    @FXML
+    public void searchCommand(ActionEvent event) {
+        System.out.println(event.getSource());
+    }
+    @FXML
+    public void pickupCommand(ActionEvent event) {
+        System.out.println(event.getSource());
+    }
+    @FXML
+    public void buyCommand(ActionEvent event) {
+        System.out.println(event.getSource());
+    }
+    @FXML
+    public void discardCommand(ActionEvent event) {
+        System.out.println(event.getSource());
+    }
 }
+
+
