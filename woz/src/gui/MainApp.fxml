@@ -26,6 +26,7 @@
 
             <Label fx:id="YearLabel" text="Year:" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="10" />
             <Label fx:id="CurrentYearLabel" text="N/A" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="72"/>
+            <Label fx:id="CurrentDisasterLabel" text="Peaceful" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" />
          </children>
       </AnchorPane>
 
@@ -48,8 +49,10 @@
 
          </VBox>
       </ScrollPane>
-      <AnchorPane fx:id="OutputPane" styleClass="OutputPane" prefHeight="240.0" prefWidth="440.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0">
+      <ScrollPane fx:id="OutputPane" styleClass="OutputPane" prefHeight="240.0" prefWidth="440.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0">
+         <VBox fx:id="OutputPaneList" alignment="CENTER">
 
-      </AnchorPane>
+         </VBox>
+      </ScrollPane>
    </children>
 </AnchorPane>

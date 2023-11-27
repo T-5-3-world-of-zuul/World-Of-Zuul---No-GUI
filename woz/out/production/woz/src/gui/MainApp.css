@@ -49,8 +49,10 @@
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
+}
 
-
+.OutputPane Label {
+    -fx-font-size: 24;
 }
 
 .ContainerPane {

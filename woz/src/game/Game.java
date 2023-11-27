@@ -58,6 +58,7 @@ public class Game {
       QuizRegistry.initQuiz();
       initRegistry();
 
+      context.getPlayerInventory().AddItemToInventory(ItemRegistry.waterPump);
       Application.launch(MainApp.class, args);
 
 

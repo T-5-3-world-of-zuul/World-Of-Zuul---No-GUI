@@ -111,10 +111,21 @@ public class DisasterHandler {
                 summonDisaster(DisasterType.NUTRITION_FAILURE, "Nutrition Failure");
                 return "NUTRITION FAILURE";
             default:
-                return "Failed to summon disaster";
+                return "Peaceful";
         }
     }
-    public void hint(int round) {
+
+    public String getDisasterName() {
+        if (type != null) {
+            return String.valueOf(type);
+        }
+        else {
+            return "Peaceful";
+        }
+    }
+
+
+    public String hint(int round) {
         String hints = switch (type) {
             case DROUGHT -> "You need to install a water pump in the well";
             case FLOOD -> "You need to place sandbags in all fields";
@@ -127,8 +138,10 @@ public class DisasterHandler {
         // Check if the round is within the valid range of hints
         if (round >= 0 && round < hints.length()) {
             System.out.println(hints);
+            return hints;
         } else {
             System.out.println("No specific hint available for this round.");
+            return "No specific hint available for this round.";
         }
     }
 }
