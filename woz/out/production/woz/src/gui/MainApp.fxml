@@ -38,7 +38,6 @@
             <Button prefWidth="300" prefHeight="40" text="Sleep" onAction="#sleepCommand"/>
             <Button prefWidth="300" prefHeight="40" text="Study" onAction="#studyCommand"/>
             <Button prefWidth="300" prefHeight="40" text="Search" onAction="#searchCommand"/>
-            <Button prefWidth="300" prefHeight="40" text="Pickup" onAction="#pickupCommand"/>
             <Button prefWidth="300" prefHeight="40" text="Buy" onAction="#buyCommand"/>
             <Button prefWidth="300" prefHeight="40" text="Discard" onAction="#discardCommand"/>
          </VBox>

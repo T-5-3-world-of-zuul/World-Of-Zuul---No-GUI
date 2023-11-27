@@ -3,7 +3,6 @@ package src.gui;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.fxml.FXML;
@@ -18,10 +17,11 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
 
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import src.game.Context;
 import src.game.Game;
+import src.game.Item;
+
 public class MainAppController implements Initializable {
     @FXML
     private Label CurrentRoomLabel;
@@ -142,6 +142,11 @@ public class MainAppController implements Initializable {
         OutputPaneList.getChildren().addAll(labelList);
     }
 
+    private void updateOutPane(List<Button> list) {
+        OutputPaneList.getChildren().clear();
+        OutputPaneList.getChildren().addAll(list);
+    }
+
     @FXML
     public void sleepCommand(ActionEvent event) throws IOException{
         Game.getRegistry().dispatch("sleep");
@@ -157,19 +162,75 @@ public class MainAppController implements Initializable {
     }
     @FXML
     public void searchCommand(ActionEvent event) {
-        Game.getRegistry().dispatch("search");
-    }
-    @FXML
-    public void pickupCommand(ActionEvent event) {
-        System.out.println(event.getSource());
+        ArrayList<Button> buttonList = new ArrayList<>();
+        for (int i = 0 ; i < context.getCurrent().itemsInRoom.inventory.size() ; i++) {
+            Button button = new Button(context.getCurrent().itemsInRoom.inventory.get(i).name);
+            button.setPrefHeight(60);
+            button.setPrefWidth(440);
+
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Game.getRegistry().dispatch("pickup " + button.getText());
+                    OutputPaneList.getChildren().clear();
+                    updateInventoryPane();
+                }
+            });
+
+            buttonList.add(button);
+        }
+        updateOutPane(buttonList);
     }
     @FXML
     public void buyCommand(ActionEvent event) {
-        System.out.println(event.getSource());
+        ArrayList<Button> buttonList = new ArrayList<>();
+        Button cancelButton = new Button("cancel");
+        buttonList.add(cancelButton);
+        for (int i = 0 ; i < Item.getItemList().size() ; i++) {
+            String label = Item.getItemList().get(i).name;
+            cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Game.getRegistry().dispatch("buy cancel");
+                    updateDisplayPane();
+                    OutputPaneList.getChildren().clear();
+                }
+            });
+            Button button = new Button(label);
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Game.getRegistry().dispatch("buy " + button.getText());
+                    updateDisplayPane();
+                    OutputPaneList.getChildren().clear();
+                }
+            });
+            buttonList.add(button);
+        }
+        updateOutPane(buttonList);
+
     }
     @FXML
     public void discardCommand(ActionEvent event) {
-        System.out.println(event.getSource());
+        ArrayList<Button> buttonList = new ArrayList<>();
+        for (int i = 0 ; i < context.getPlayerInventory().inventory.size() ; i++) {
+            String label = context.getPlayerInventory().inventory.get(i).name.substring(0, 1).toUpperCase() + context.getPlayerInventory().inventory.get(i).name.substring(1);
+            Button button = new Button(label);
+            button.setPrefHeight(60);
+            button.setPrefWidth(440);
+
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Game.getRegistry().dispatch("discard " + button.getText().toLowerCase());
+                    updateInventoryPane();
+                    OutputPaneList.getChildren().clear();
+                }
+            });
+            buttonList.add(button);
+
+        }
+        updateOutPane(buttonList);
     }
 }
 

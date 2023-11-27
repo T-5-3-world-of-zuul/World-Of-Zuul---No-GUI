@@ -55,6 +55,11 @@
     -fx-font-size: 24;
 }
 
+.OutputPane Button {
+    -fx-pref-width: 440;
+    -fx-pref-height: 60;
+}
+
 .ContainerPane {
     -fx-background-color: lightgrey;
 }
