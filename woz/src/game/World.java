@@ -25,15 +25,15 @@ public class World {
    *
    */
   World () {
-    Space bedchamber    = new Space("Bedchamber");
-    Space office    = new Space("Office");
-    Space houseEntry    = new Space("House");
-    Space outside = new Space("Outside");
-    Space barn     = new Space("Barn");
-    Space well      = new Space("Well");
-    Space field1  = new Space("Field 1");
-    Space field2  = new Space("Field 2");
-    Space field3  = new Space("Field 3");
+    Space bedchamber    = new Space("Bedchamber", "/src/images/BedchamberBackground.png");
+    Space office    = new Space("Office", "/src/images/OfficeBackground.png");
+    Space houseEntry    = new Space("House", "/src/images/HouseBackground.png");
+    Space outside = new Space("Outside", "/src/images/OutsideBackground.png");
+    Space barn     = new Space("Barn", "/src/images/BarnBackground.png");
+    Space well      = new Space("Well", "/src/images/WellBackground.png");
+    Space field1  = new Space("Field 1", "/src/images/Field1Background.png");
+    Space field2  = new Space("Field 2", "/src/images/Field2Background.png");
+    Space field3  = new Space("Field 3", "/src/images/Field3Background.png");
 
     World.rooms.add(bedchamber);
     World.rooms.add(office);

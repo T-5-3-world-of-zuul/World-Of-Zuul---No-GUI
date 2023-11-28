@@ -10,6 +10,8 @@ import java.util.Map;
 public class Registry {
   Context context;
   Command fallback;
+
+  String output;
   Map<String, Command> commands = new HashMap<String, Command>();
   
   /**
@@ -96,6 +98,10 @@ public class Registry {
   public String[] getCommandNames () {
     return commands.keySet().toArray(new String[0]);
   }
+
+  public String getOutput () { return output; }
+
+  public void setOutput(String output) { this.output = output; }
   
   // helpers
   

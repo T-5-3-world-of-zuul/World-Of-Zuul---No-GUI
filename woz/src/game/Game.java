@@ -1,7 +1,10 @@
 package src.game;
 /* Main class for launching the game */
 import java.util.Scanner;
+
+import javafx.application.Application;
 import src.game.commands.*;
+import src.gui.MainApp;
 
 public class Game {
   static World    world    = new World();
@@ -14,17 +17,18 @@ public class Game {
     return world;
   }
 
+  public static Context getContext() {
+    return context;
+  }
   public static Scanner getScanner(){
     return scanner;
   }
+
+  public static Registry getRegistry() {
+    return registry;
+  }
   /**
    * The initRegistry function initializes the registry with a few commands.
-   *
-   *
-   *
-   *
-   * @return A commandregistry object
-   *
    */
   private static void initRegistry () {
     Command cmdExit = new CommandExit();
@@ -49,32 +53,13 @@ public class Game {
    * It initializes a new game context, and then enters a loop that reads user input from stdin,
    * dispatches it to the command registry for processing, and repeats until either an exit command is issued or
    * an error occurs. The main function also prints out welcome messages at startup and goodbye messages when exiting.
-
-   *
-   * @param String args[] Pass command line arguments to the program
-   *
-   * @return Nothing (void)
-   *
    */
   public static void main (String[] args) {
-    System.out.println(
-            "Welcome to the world of zuul,"+
-            "\nThis game is a educational game,"+
-            "\ndesigned to teach you about ways to secure crop production in a third world country,"+
-            "\nbased on UN’s Goal 2.4 'By 2030, ensure sustainable food production systems and implement resilient agricultural practices that increase productivity and production,"+
-            "\nthat help maintain ecosystems, that strengthen capacity for adaptation to climate change,"+
-            "\nextreme weather, drought, flooding and other disasters and that progressively improve land and soil quality'."+
-            "\nIn practice, this means you (the player) will be playing as a farmer in a third world country,"+
-            "\nyou will be walking around your farm, securing your crops from the impending doom that will befall it each year. through trial and error,"+
-            "\nyou will hopefully learn better how to secure your crops, \nGood Luck"
-            );
+      QuizRegistry.initQuiz();
+      initRegistry();
 
-    QuizRegistry.initQuiz();
-
-
-    initRegistry();
-    context.getCurrent().welcome();
-
+      context.getPlayerInventory().AddItemToInventory(ItemRegistry.waterPump);
+      Application.launch(MainApp.class, args);
 
 
     while (!context.isDone()) {
@@ -82,6 +67,7 @@ public class Game {
       String line = scanner.nextLine();
       registry.dispatch(line);
     }
+
     System.out.println("Game Over 😥");
   }
 }

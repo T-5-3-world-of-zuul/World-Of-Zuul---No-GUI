@@ -8,8 +8,8 @@ import java.util.Set;
 public class Space extends Node {
   public Inventory itemsInRoom = new Inventory();
   public Inventory itemsUsedInRoom = new Inventory();
-  Space (String name) {
-    super(name);
+  Space (String name, String imageUrl) {
+    super(name, imageUrl);
   }
 
 
@@ -24,12 +24,7 @@ public class Space extends Node {
    *
    */
   public void welcome () {
-    System.out.println("You are now at "+name);
-    Set<String> exits = edges.keySet();
-    System.out.println("Current exits are:");
-    for (String exit: exits) {
-      System.out.println(" - "+exit);
-    }
+
   }
   
   /**

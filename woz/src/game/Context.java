@@ -12,6 +12,8 @@ public class Context {
 
   RoundSystem roundSystem = new RoundSystem(0,Game.getWorld(),true);
 
+  PlayerEnergy player = PlayerEnergy.getPlayer();
+
   /**
    * The Context function is used to set the current node in the tree.
    *
@@ -43,6 +45,10 @@ public class Context {
 
   public RoundSystem getRoundSystem(){
     return roundSystem;
+  }
+
+  public PlayerEnergy getPlayer() {
+    return player;
   }
 
   public void setDone(boolean done) {

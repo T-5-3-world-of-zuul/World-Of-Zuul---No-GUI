@@ -1,12 +1,8 @@
 package src.game.commands;
 
 import java.util.Scanner;
-import src.game.Context;
-import src.game.PlayerEnergy;
-import src.game.Item;
-import src.game.Space;
-import src.game.World;
-import src.game.Game;
+
+import src.game.*;
 
 public class CommandBuy extends BaseCommand implements Command {
 
@@ -15,7 +11,7 @@ public class CommandBuy extends BaseCommand implements Command {
     public CommandBuy(){
         description = "buy item and put in barn, (usable only in bedchamber) (0 parameters)";
     }
-
+/* Code for Terminal based application
     @Override
     public void execute(Context context, String command, String[] parameters) {
         Space barn = World.getSpace("Barn");
@@ -54,6 +50,29 @@ public class CommandBuy extends BaseCommand implements Command {
 
     }
 
+ */
+//Code for GUI based application
+    @Override
+    public void execute(Context context, String command, String[] parameters) {
+        Space barn = World.getSpace("Barn");
+        String choice = parameters[0];
+
+        if (choice.equalsIgnoreCase("cancel")) {
+            Game.getRegistry().setOutput("you canceled the order");
+        }
+
+        Item foundItem = findItem(choice);
+        if (foundItem != null){
+            if(player.getEnergy() > foundItem.price){
+                player.removeEnergy(foundItem.price);
+                barn.itemsInRoom.inventory.add(foundItem);
+                Game.getRegistry().setOutput("Your item can be found in the barn");
+            } else{
+                Game.getRegistry().setOutput("You don't have enough energy for that");
+            }
+        }
+    }
+
     public Item findItem(String itemName){
         for (Item item: Item.getItemList()) {
 
@@ -69,7 +88,7 @@ public class CommandBuy extends BaseCommand implements Command {
         System.out.println("---------------------");
         System.out.println("List of buyable items:");
         for (Item item: Item.getItemList()) {
-            System.out.println("src.game.Item : " + item.name + "\tPrice: " + item.price + " energy");
+            System.out.println("Item : " + item.name + "\tPrice: " + item.price + " energy");
         }
         System.out.println("---------------------");
         System.out.println("Energy : "+ player.getEnergy());

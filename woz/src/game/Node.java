@@ -6,6 +6,7 @@ import java.util.Map;
 
 class Node {
   String name;
+  String imageURl;
   Map<String, Node> edges = new HashMap<String, Node>();
   
   /**
@@ -17,8 +18,9 @@ class Node {
    * @return A new node with the name of the parameter
    *
    */
-  Node (String name) {
+  Node (String name, String imageURl) {
     this.name = name.toLowerCase();
+    this.imageURl = imageURl;
 
   }
   
@@ -31,7 +33,16 @@ class Node {
    *
    */
   public String getName () {
-    return name;
+
+    return name.substring(0, 1).toUpperCase() + name.substring(1);
+  }
+
+  public String getImageURl() {
+    return imageURl;
+  }
+
+  public Map<String, Node> getEdges() {
+    return edges;
   }
   
   /**
