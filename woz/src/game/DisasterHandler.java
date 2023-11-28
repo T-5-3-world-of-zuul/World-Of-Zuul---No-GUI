@@ -116,6 +116,7 @@ public class DisasterHandler {
     }
     public void hint(int round) {
         String hints = switch (type) {
+            case null -> "GO SCHLEEP";
             case DROUGHT -> "You need to install a water pump in the well";
             case FLOOD -> "You need to place sandbags in all fields";
             case HAIL -> "You need to build a hail net";
