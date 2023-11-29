@@ -21,8 +21,10 @@ import javafx.scene.layout.VBox;
 import src.game.Context;
 import src.game.Game;
 import src.game.Item;
+import src.game.ScoreSystem;
 
 public class MainAppController implements Initializable {
+    ScoreSystem scoreSystem = new ScoreSystem();
     @FXML
     private Label CurrentRoomLabel;
     @FXML
@@ -150,6 +152,7 @@ public class MainAppController implements Initializable {
     @FXML
     public void sleepCommand(ActionEvent event) throws IOException{
         Game.getRegistry().dispatch("sleep");
+        calculateScore();
         updateDisplayPane();
     }
     @FXML
@@ -231,6 +234,13 @@ public class MainAppController implements Initializable {
 
         }
         updateOutPane(buttonList);
+    }
+
+
+    public void calculateScore() {
+        int score = scoreSystem.calculateScore(context);
+        context.getPlayer().setEnergy(score);
+        EnergyAmountLabel.setText(context.getPlayer().getEnergy()+ score + "/" + context.getPlayer().getMaxEnergy());
     }
 }
 

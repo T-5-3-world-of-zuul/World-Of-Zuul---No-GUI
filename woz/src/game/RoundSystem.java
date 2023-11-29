@@ -1,6 +1,7 @@
 package src.game;
 
 public class RoundSystem {
+    ScoreSystem scoreSystem = new ScoreSystem();
     public int round;
     private World world;
     public final boolean isAwake;
@@ -21,7 +22,7 @@ public class RoundSystem {
             disasterHandler.solveDisaster();
             if (disasterHandler.isCurrentDisasterSolved()) {
                 System.out.println("You've completed round " + round + " with a score of " +
-                        ScoreSystem.calculateScore(Game.context) + ", moving on to round: " + (round + 1));
+                        scoreSystem.calculateScore(Game.context) + ", moving on to round: " + (round + 1));
             } else {
                 System.out.println("You haven't completed your preparation for the upcoming disaster");
                 Game.context.setDone(true);
