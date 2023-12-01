@@ -114,8 +114,7 @@ public class Context {
     Parent root = FXMLLoader.load(MainApp.class.getResource("GameOverScene.FXML"));
 
     Scene scene = new Scene(root);
-    String css = MainApp.class.getResource("GameOverScene.css").toExternalForm();
-    scene.getStylesheets().add(css);
+
     Stage mainStage = MainApp.getStage();
     mainStage.setScene(scene);
     mainStage.show();
