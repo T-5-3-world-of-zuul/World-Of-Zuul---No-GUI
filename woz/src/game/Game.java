@@ -1,8 +1,15 @@
 package src.game;
 /* Main class for launching the game */
+import java.io.IOException;
 import java.util.Scanner;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 import src.game.commands.*;
 import src.gui.MainApp;
 
@@ -54,7 +61,7 @@ public class Game {
    * dispatches it to the command registry for processing, and repeats until either an exit command is issued or
    * an error occurs. The main function also prints out welcome messages at startup and goodbye messages when exiting.
    */
-  public static void main (String[] args) {
+  public static void main (String[] args) throws IOException {
       QuizRegistry.initQuiz();
       initRegistry();
 
@@ -69,5 +76,18 @@ public class Game {
     }
 
     System.out.println("Game Over 😥");
+    context.GameOver();
+
+
+  }
+
+  public void GameOver() throws IOException {
+    Parent root = FXMLLoader.load(getClass().getResource("GameOverScene.FXML"));
+    Scene scene = new Scene(root);
+
+    Stage mainStage = new Stage();
+
+    mainStage.setScene(scene);
+    mainStage.show();
   }
 }

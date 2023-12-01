@@ -33,7 +33,7 @@
       <VBox fx:id="NavigationPane" styleClass="NavigationPane" prefHeight="460.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
       </VBox>
-      <ScrollPane fx:id="CommandPane"  styleClass="CommandPane"  prefHeight="240.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <ScrollPane fx:id="CommandPane"  hbarPolicy="NEVER" styleClass="CommandPane"  prefHeight="240.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <VBox>
             <Button prefWidth="300" prefHeight="40" text="Sleep" onAction="#sleepCommand"/>
             <Button prefWidth="300" prefHeight="40" text="Study" onAction="#studyCommand"/>
@@ -43,12 +43,12 @@
          </VBox>
       </ScrollPane>
 
-      <ScrollPane fx:id="InventoryPane" styleClass="InventoryPane"  prefHeight="240.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+      <ScrollPane fx:id="InventoryPane" hbarPolicy="NEVER" styleClass="InventoryPane"  prefHeight="240.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
          <VBox fx:id="InventoryPaneList">
 
          </VBox>
       </ScrollPane>
-      <ScrollPane fx:id="OutputPane" styleClass="OutputPane" prefHeight="240.0" prefWidth="440.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0">
+      <ScrollPane fx:id="OutputPane" hbarPolicy="NEVER" styleClass="OutputPane" prefHeight="240.0" prefWidth="440.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0">
          <VBox fx:id="OutputPaneList" alignment="CENTER">
 
          </VBox>

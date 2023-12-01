@@ -17,17 +17,22 @@ public class RoundSystem {
 
     public void newRound() {
         if (round != 0) {
-            QuizRegistry.quiz.get(0).startQuiz();
+            //QuizRegistry.quiz.get(0).startQuiz();
             disasterHandler.solveDisaster();
             if (disasterHandler.isCurrentDisasterSolved()) {
-                System.out.println("You've completed round " + round + " with a score of " +
-                        ScoreSystem.calculateScore(Game.context) + ", moving on to round: " + (round + 1));
+                String outText = "You've completed round " + round + " with a score of " +
+                        ScoreSystem.calculateScore(Game.context) + ", moving on to round: " + (round + 1);
+                Game.getRegistry().setOutput(outText);
             } else {
-                System.out.println("You haven't completed your preparation for the upcoming disaster");
-                Game.context.setDone(true);
+                String outText = "You haven't completed your preparation for the upcoming disaster";
+                Game.getRegistry().setOutput(outText);
+
+                Game.context.makeDone();
             }
         } else {
-            System.out.println("You've completed round " + round + ". Moving on to " + (round + 1));
+            String outText = "You've completed round " + round + ". Moving on to " + (round + 1);
+            Game.getRegistry().setOutput(outText);
+
         }
 
         setRound(++this.round);

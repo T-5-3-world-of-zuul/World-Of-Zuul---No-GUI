@@ -19,7 +19,7 @@ public class CommandStudy extends BaseCommand implements Command {
                 player.removeEnergy(20);
                 System.out.println("You have " + player.getEnergy() + " energy left");
             } else {
-                context.setDone(true);
+                context.makeDone();
                 System.out.println("You have run out of energy, you can't do anything else");
                 Game.getRegistry().setOutput("You have run out of energy, you can't do anything else");
             }

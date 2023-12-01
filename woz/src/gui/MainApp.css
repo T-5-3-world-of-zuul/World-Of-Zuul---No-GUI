@@ -2,6 +2,8 @@
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
+    -fx-fit-to-width: true;
+
 }
 
 .DisplayPane Label {
@@ -11,17 +13,17 @@
 }
 
 
-
 .NavigationPane {
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
-
+    -fx-fit-to-width: true;
 }
 
 .NavigationPane Button {
     -fx-font-weight: bold;
     -fx-font-size: 24;
+    -fx-background-radius: 15px;
 }
 
 
@@ -30,25 +32,35 @@
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
+    -fx-fit-to-width: true;
 
+}
 
+.InventoryPane Button{
+    -fx-font-size: 24px;
+    -fx-background-radius: 15px;
 }
 
 .CommandPane {
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
+    -fx-fit-to-width: true;
+
 }
 
 .CommandPane Button {
     -fx-font-weight: bold;
     -fx-font-size: 24;
+    -fx-background-radius: 15px;
 }
 
 .OutputPane {
     -fx-border-color: black;
     -fx-border-width: 2;
     -fx-background-color: white;
+    -fx-fit-to-width: true;
+
 }
 
 .OutputPane Label {
@@ -58,8 +70,11 @@
 .OutputPane Button {
     -fx-pref-width: 440;
     -fx-pref-height: 60;
+    -fx-background-radius: 15px;
 }
 
 .ContainerPane {
     -fx-background-color: lightgrey;
+
 }
+

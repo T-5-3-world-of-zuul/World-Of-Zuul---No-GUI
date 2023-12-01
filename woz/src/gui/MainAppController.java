@@ -147,10 +147,20 @@ public class MainAppController implements Initializable {
         OutputPaneList.getChildren().addAll(list);
     }
 
+    public void printToOutputPane(String outputText){
+        Label label = new Label(outputText);
+        label.setWrapText(true);
+        label.setMaxWidth(440);
+        OutputPaneList.getChildren().add(label);
+    }
     @FXML
     public void sleepCommand(ActionEvent event) throws IOException{
         Game.getRegistry().dispatch("sleep");
+        ArrayList<String> outputText = new ArrayList<>();
+        outputText.add(Game.getRegistry().getOutput());
+        updateOutputPane(outputText);
         updateDisplayPane();
+
     }
     @FXML
     public void studyCommand(ActionEvent event) {
@@ -186,21 +196,23 @@ public class MainAppController implements Initializable {
         ArrayList<Button> buttonList = new ArrayList<>();
         Button cancelButton = new Button("cancel");
         buttonList.add(cancelButton);
+        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Game.getRegistry().dispatch("buy cancel");
+                updateDisplayPane();
+                OutputPaneList.getChildren().clear();
+            }
+        });
         for (int i = 0 ; i < Item.getItemList().size() ; i++) {
             String label = Item.getItemList().get(i).name;
-            cancelButton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    Game.getRegistry().dispatch("buy cancel");
-                    updateDisplayPane();
-                    OutputPaneList.getChildren().clear();
-                }
-            });
+
             Button button = new Button(label);
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     Game.getRegistry().dispatch("buy " + button.getText());
+
                     updateDisplayPane();
                     OutputPaneList.getChildren().clear();
                 }
