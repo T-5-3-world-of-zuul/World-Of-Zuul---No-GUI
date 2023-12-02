@@ -34,7 +34,7 @@
 
       </VBox>
       <ScrollPane fx:id="CommandPane"  hbarPolicy="NEVER" styleClass="CommandPane"  prefHeight="240.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <VBox>
+         <VBox fx:id="CommandPaneList">
             <Button prefWidth="300" prefHeight="40" text="Sleep" onAction="#sleepCommand"/>
             <Button prefWidth="300" prefHeight="40" text="Study" onAction="#studyCommand"/>
             <Button prefWidth="300" prefHeight="40" text="Search" onAction="#searchCommand"/>

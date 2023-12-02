@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class QuizRegistry {
 
-    static ArrayList<QuizSystem> quiz = new ArrayList<QuizSystem>();
+    public static ArrayList<QuizSystem> quiz = new ArrayList<QuizSystem>();
 
 
 

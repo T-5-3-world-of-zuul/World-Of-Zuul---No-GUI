@@ -76,7 +76,7 @@ public class Game {
     }
 
     System.out.println("Game Over 😥");
-    context.GameOver();
+
 
 
   }
