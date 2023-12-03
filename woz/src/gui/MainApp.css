@@ -1,7 +1,24 @@
+ScrollPane .scroll-bar{
+    -fx-background-color: transparent;
+
+}
+
+ScrollPane .thumb {
+    -fx-background-color :derive(black,90.0%);
+    -fx-background-insets : 2.0, 0.0, 0.0;
+    -fx-background-radius : 2.0em;
+}
+
+ScrollPane .track{
+    -fx-background-color :derive(black,60.0%);
+    -fx-background-radius : 2.0em;
+    -fx-fit-to-height: true;
+}
+
 .DisplayPane {
-    -fx-border-color: black;
+    -fx-border-color: #353b48;
     -fx-border-width: 2;
-    -fx-background-color: white;
+    -fx-border-radius: 5;
     -fx-fit-to-width: true;
 
 }
@@ -14,9 +31,9 @@
 
 
 .NavigationPane {
-    -fx-border-color: black;
-    -fx-border-width: 2;
-    -fx-background-color: white;
+
+    -fx-background-color: #353b48;
+    -fx-background-radius: 5;
     -fx-fit-to-width: true;
 }
 
@@ -29,9 +46,10 @@
 
 
 .InventoryPane {
-    -fx-border-color: black;
-    -fx-border-width: 2;
-    -fx-background-color: white;
+
+    -fx-background-radius: 5;
+    -fx-background-color: #353b48;
+    -fx-background: #353b48;
     -fx-fit-to-width: true;
 
 }
@@ -41,10 +59,13 @@
     -fx-background-radius: 15px;
 }
 
+
+
 .CommandPane {
-    -fx-border-color: black;
-    -fx-border-width: 2;
-    -fx-background-color: white;
+
+    -fx-background-radius: 5;
+    -fx-background-color: #353b48;
+    -fx-background: #353b48;
     -fx-fit-to-width: true;
 
 }
@@ -56,9 +77,9 @@
 }
 
 .OutputPane {
-    -fx-border-color: black;
-    -fx-border-width: 2;
-    -fx-background-color: white;
+    -fx-background-radius: 5;
+    -fx-background-color: #353b48;
+    -fx-background: #353b48;
     -fx-fit-to-width: true;
 
 }
@@ -74,7 +95,7 @@
 }
 
 .ContainerPane {
-    -fx-background-color: lightgrey;
+    -fx-background: #2f3640;
 
 }
 

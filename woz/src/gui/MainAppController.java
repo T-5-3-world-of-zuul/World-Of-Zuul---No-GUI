@@ -174,10 +174,11 @@ public class MainAppController implements Initializable {
     @FXML
     public void sleepCommand(ActionEvent event) throws IOException{
         Game.getRegistry().dispatch("sleep");
+
         ArrayList<String> outputText = new ArrayList<>();
         outputText.add(Game.getRegistry().getOutput());
         updateOutputPane(outputText);
-        if (context.getRoundSystem().getRound() != 1){
+        if (context.getRoundSystem().getRound() != 1 && context.getCurrent().getName().equalsIgnoreCase("Bedchamber")){
             quizStartGUI();
         }
 

@@ -1,57 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollBar?>
-<AnchorPane fx:id="ContainerPane" styleClass="ContainerPane" fx:controller="src.gui.MainAppController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane fx:id="ContainerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" styleClass="ContainerPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.MainAppController">
    <children>
-      <AnchorPane fx:id="DisplayPane" styleClass="DisplayPane" prefHeight="460.0" prefWidth="760.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="DisplayPane" prefHeight="460.0" prefWidth="760.0" styleClass="DisplayPane" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="BackgroundImg" fitWidth="760" fitHeight="460" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0">
-               <Image url="/src/images/BedchamberBackground.png"/>
+            <ImageView fx:id="BackgroundImg" fitHeight="460" fitWidth="760" AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0">
+               <image>
+                  <Image url="/src/images/BedchamberBackground.png" />
+               </image>
             </ImageView>
-            <Label fx:id="RoomLabel" text="Room:" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="0"/>
-            <Label fx:id="CurrentRoomLabel" text="Nothing" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="30"/>
+            <Label fx:id="RoomLabel" text="Room:" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="0" />
+            <Label fx:id="CurrentRoomLabel" text="Nothing" AnchorPane.leftAnchor="10" AnchorPane.topAnchor="30" />
 
             <Label fx:id="EnergyAmountLabel" text="100/100" AnchorPane.rightAnchor="30" AnchorPane.topAnchor="15" />
             <ImageView fx:id="EnergyIcon" fitHeight="30" fitWidth="30" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="15">
-               <Image url="/src/images/EnergyIcon.png"/>
+               <image>
+                  <Image url="/src/images/EnergyIcon.png" />
+               </image>
             </ImageView>
 
             <Label fx:id="YearLabel" text="Year:" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="10" />
-            <Label fx:id="CurrentYearLabel" text="N/A" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="72"/>
+            <Label fx:id="CurrentYearLabel" text="N/A" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="72" />
             <Label fx:id="CurrentDisasterLabel" text="Peaceful" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" />
          </children>
       </AnchorPane>
 
-      <VBox fx:id="NavigationPane" styleClass="NavigationPane" prefHeight="460.0" prefWidth="300.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox fx:id="NavigationPane" prefHeight="460.0" prefWidth="300.0" styleClass="NavigationPane" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
       </VBox>
-      <ScrollPane fx:id="CommandPane"  hbarPolicy="NEVER" styleClass="CommandPane"  prefHeight="240.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <VBox fx:id="CommandPaneList">
-            <Button prefWidth="300" prefHeight="40" text="Sleep" onAction="#sleepCommand"/>
-            <Button prefWidth="300" prefHeight="40" text="Study" onAction="#studyCommand"/>
-            <Button prefWidth="300" prefHeight="40" text="Search" onAction="#searchCommand"/>
-            <Button prefWidth="300" prefHeight="40" text="Buy" onAction="#buyCommand"/>
-            <Button prefWidth="300" prefHeight="40" text="Discard" onAction="#discardCommand"/>
-         </VBox>
+      <ScrollPane fx:id="CommandPane" hbarPolicy="NEVER" prefHeight="240.0" prefWidth="300.0" styleClass="CommandPane" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <content>
+            <VBox fx:id="CommandPaneList">
+               <children>
+                  <Button onAction="#sleepCommand" prefHeight="40" prefWidth="300" text="Sleep" />
+                  <Button onAction="#studyCommand" prefHeight="40" prefWidth="300" text="Study" />
+                  <Button onAction="#searchCommand" prefHeight="40" prefWidth="300" text="Search" />
+                  <Button onAction="#buyCommand" prefHeight="40" prefWidth="300" text="Buy" />
+                  <Button onAction="#discardCommand" prefHeight="40" prefWidth="300" text="Discard" />
+               </children>
+            </VBox>
+         </content>
       </ScrollPane>
 
-      <ScrollPane fx:id="InventoryPane" hbarPolicy="NEVER" styleClass="InventoryPane"  prefHeight="240.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
-         <VBox fx:id="InventoryPaneList">
+      <ScrollPane fx:id="InventoryPane" hbarPolicy="NEVER" prefHeight="240.0" prefWidth="300.0" styleClass="InventoryPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0">
+   <content>
+            <VBox fx:id="InventoryPaneList">
 
-         </VBox>
+            </VBox>
+
+   </content>
       </ScrollPane>
-      <ScrollPane fx:id="OutputPane" hbarPolicy="NEVER" styleClass="OutputPane" prefHeight="240.0" prefWidth="440.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0">
-         <VBox fx:id="OutputPaneList" alignment="CENTER">
+      <ScrollPane  fx:id="OutputPane" hbarPolicy="NEVER" prefHeight="240.0" prefWidth="440.0" styleClass="OutputPane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0">
+
+         <content>
+            <VBox fx:id="OutputPaneList" alignment="CENTER">
 
          </VBox>
+         </content>
       </ScrollPane>
    </children>
 </AnchorPane>
