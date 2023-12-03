@@ -33,3 +33,24 @@
 }
 
 
+.Window {
+    -fx-background-color: #2f3640;
+}
+
+.GameOverLabel {
+    -fx-font-size: 64px;
+    -fx-text-fill: white;
+    -fx-fit-to-width: true;
+    -fx-alignment: center;
+    -fx-pref-width: 1080;
+}
+
+.GameOverText {
+    -fx-font-size: 32px;
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+    -fx-pref-width: 1080;
+    -fx-label-padding: 100;
+
+}
