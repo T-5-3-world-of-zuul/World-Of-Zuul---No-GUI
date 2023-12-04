@@ -1,5 +1,16 @@
 package src.game;
 
+import com.sun.tools.javac.Main;
+import javafx.fxml.FXML;
+import src.gui.MainApp;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+
 /*
 Context class to hold all context relevant to a session.
  */
@@ -89,6 +100,24 @@ public class Context {
    */
   public void makeDone () {
     done = true;
+    try {
+      GameOver();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+
+  public void GameOver() throws IOException {
+
+
+
+    Parent root = FXMLLoader.load(MainApp.class.getResource("GameOverScene.FXML"));
+
+    Scene scene = new Scene(root);
+
+    Stage mainStage = MainApp.getStage();
+    mainStage.setScene(scene);
+    mainStage.show();
   }
   
   /**

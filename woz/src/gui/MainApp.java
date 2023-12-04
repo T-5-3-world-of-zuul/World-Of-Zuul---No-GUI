@@ -9,17 +9,36 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainApp extends Application {
+    static Stage mainStage;
     @Override
     public void start (Stage mainStage) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("IntroScene.FXML"));
-            Scene scene = new Scene(root);
+        setStage(mainStage);
+        Parent root = FXMLLoader.load(getClass().getResource("IntroScene.FXML"));
+        Scene scene = new Scene(root);
 
-            mainStage.setTitle("Crop Guard");
-            mainStage.setResizable(false);
-            Image icon = new Image("src/images/NewCropGuardLogo.png");
-            mainStage.getIcons().add(icon);
-            mainStage.setScene(scene);
-            mainStage.show();
+        mainStage.setTitle("Crop Guard");
+        mainStage.setResizable(false);
+        Image icon = new Image("/src/images/CropGuardLogo.png");
+        mainStage.getIcons().add(icon);
+
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+
+
+    public static Stage getStage(){
+        return mainStage;
+    }
+
+    public static void setStage(Stage stage){
+        mainStage = stage;
+        mainStage.setTitle("Crop Guard");
+        mainStage.setResizable(false);
+        Image icon = new Image("src/images/NewCropGuardLogo.png");
+        mainStage.getIcons().add(icon);
+        mainStage.setScene(scene);
+        mainStage.show();
     }
 }
 

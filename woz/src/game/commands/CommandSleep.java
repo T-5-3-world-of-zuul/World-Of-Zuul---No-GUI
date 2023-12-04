@@ -1,6 +1,8 @@
 package src.game.commands;
 
 import src.game.Context;
+import src.game.Game;
+
 public class CommandSleep extends BaseCommand implements Command{
 
     public CommandSleep(){
@@ -13,6 +15,7 @@ public class CommandSleep extends BaseCommand implements Command{
         if(context.getCurrent().getName().equalsIgnoreCase("Bedchamber")){
 
             context.getRoundSystem().newRound();
+
         }else {
             System.out.println("Sorry, you can't sleep outside the bed chamber 😕");
         }

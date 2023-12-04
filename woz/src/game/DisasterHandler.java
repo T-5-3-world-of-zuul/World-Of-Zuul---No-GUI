@@ -17,11 +17,13 @@ public class DisasterHandler {
     }
 
     public void summonDisaster(DisasterType t, String disasterName) {
+        currentDisasterSolved = false;
         this.type = t;
         System.out.println(disasterName + " has been summoned");
     }
 
     public void solveDisaster() {
+
         boolean seedsPlantedF1 = World.getSpace("Field 1").itemsUsedInRoom.BoolCheckForItemType(Item.itemTypes.seeds);
         boolean seedsPlantedF2 = World.getSpace("Field 2").itemsUsedInRoom.BoolCheckForItemType(Item.itemTypes.seeds);
         boolean seedsPlantedF3 = World.getSpace("Field 3").itemsUsedInRoom.BoolCheckForItemType(Item.itemTypes.seeds);
@@ -29,6 +31,7 @@ public class DisasterHandler {
         if(seedsPlantedF1 && seedsPlantedF2 && seedsPlantedF3){
             seedsPlantedEverywhere = true;
         }
+        System.out.println(seedsPlantedEverywhere);
         switch (type) {
             case DROUGHT:
                 if(World.getSpace("Well").itemsUsedInRoom.CheckForItem("water_pump") != null && seedsPlantedEverywhere){
@@ -39,6 +42,7 @@ public class DisasterHandler {
                 Item sandbagField1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("sandbag");
                 Item sandbagField2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("sandbag");
                 Item sandbagField3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("sandbag");
+                System.out.println(sandbagField1+""+sandbagField2 + sandbagField3);
                 if(sandbagField1 != null && sandbagField2 != null && sandbagField3 != null && seedsPlantedEverywhere){
                     currentDisasterSolved = true;
                 }
@@ -51,8 +55,6 @@ public class DisasterHandler {
                     currentDisasterSolved = true;
                 }
                 break;
-
-
             case LOCUST_SWARMS:
                 Item pesticide1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
                 Item pesticide2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");

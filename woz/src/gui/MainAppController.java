@@ -3,6 +3,7 @@ package src.gui;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.fxml.FXML;
@@ -17,12 +18,17 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import src.game.Context;
 import src.game.Game;
 import src.game.Item;
+import src.game.QuizRegistry;
 
 public class MainAppController implements Initializable {
+    @FXML
+    public VBox CommandPaneList;
+
     @FXML
     private Label CurrentRoomLabel;
     @FXML
@@ -40,8 +46,11 @@ public class MainAppController implements Initializable {
     @FXML
     private VBox OutputPaneList;
 
+    private static VBox OutputPaneListStat;
+
     private Context context;
 
+    private static Pane[] panesDisabled;
     public MainAppController() {
         context = Game.getContext();
     }
@@ -51,6 +60,7 @@ public class MainAppController implements Initializable {
         updateDisplayPane();
         updateNavigationPane();
         updateInventoryPane();
+        OutputPaneListStat = OutputPaneList;
     }
 
     private void updateDisplayPane() {
@@ -129,8 +139,7 @@ public class MainAppController implements Initializable {
         });
         OutputPaneList.getChildren().addAll(interactWith, yesBtn, noBtn);
     }
-
-    private void updateOutputPane(List<String> list) {
+    private void updateOutputPane(List<String> list, List<Button> btnList) {
         ArrayList<Label> labelList = new ArrayList<>();
         for (String displayText : list) {
             Label label = new Label(displayText);
@@ -138,8 +147,22 @@ public class MainAppController implements Initializable {
             label.setMaxWidth(440);
             labelList.add(label);
         }
+
+
         OutputPaneList.getChildren().clear();
         OutputPaneList.getChildren().addAll(labelList);
+        OutputPaneList.getChildren().addAll(btnList);
+    }
+    private static void updateOutputPane(List<String> list) {
+        ArrayList<Label> labelList = new ArrayList<>();
+        for (String displayText : list) {
+            Label label = new Label(displayText);
+            label.setWrapText(true);
+            label.setMaxWidth(440);
+            labelList.add(label);
+        }
+        OutputPaneListStat.getChildren().clear();
+        OutputPaneListStat.getChildren().addAll(labelList);
     }
 
     private void updateOutPane(List<Button> list) {
@@ -147,10 +170,54 @@ public class MainAppController implements Initializable {
         OutputPaneList.getChildren().addAll(list);
     }
 
+
     @FXML
     public void sleepCommand(ActionEvent event) throws IOException{
         Game.getRegistry().dispatch("sleep");
+
+        ArrayList<String> outputText = new ArrayList<>();
+        outputText.add(Game.getRegistry().getOutput());
+        updateOutputPane(outputText);
+        if (context.getRoundSystem().getRound() != 1 && context.getCurrent().getName().equalsIgnoreCase("Bedchamber")){
+            quizStartGUI();
+        }
+
+
         updateDisplayPane();
+
+    }
+
+    public void quizStartGUI(){
+
+
+
+        List<Button> btnList = QuizRegistry.quiz.get(0).startQuiz();
+        ArrayList<String> outputText = new ArrayList<>();
+        outputText.add(Game.getRegistry().getOutput());
+        updateOutputPane(outputText, btnList);
+        Pane[] panes = new Pane[]{NavigationPane, InventoryPaneList, CommandPaneList};
+        disablePanes(panes);
+
+
+    }
+
+
+
+    public void disablePanes(Pane[] panes){
+        for (Pane pane : panes) {
+            pane.setDisable(true);
+        }
+        panesDisabled = panes.clone();
+    }
+
+    public static void activateAllPanes(){
+
+        for (Pane pane : panesDisabled) {
+            pane.setDisable(false);
+        }
+        ArrayList<String> outputText = new ArrayList<>();
+        outputText.add(Game.getRegistry().getOutput());
+        updateOutputPane(outputText);
     }
     @FXML
     public void studyCommand(ActionEvent event) {
@@ -186,21 +253,23 @@ public class MainAppController implements Initializable {
         ArrayList<Button> buttonList = new ArrayList<>();
         Button cancelButton = new Button("cancel");
         buttonList.add(cancelButton);
+        cancelButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Game.getRegistry().dispatch("buy cancel");
+                updateDisplayPane();
+                OutputPaneList.getChildren().clear();
+            }
+        });
         for (int i = 0 ; i < Item.getItemList().size() ; i++) {
             String label = Item.getItemList().get(i).name;
-            cancelButton.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    Game.getRegistry().dispatch("buy cancel");
-                    updateDisplayPane();
-                    OutputPaneList.getChildren().clear();
-                }
-            });
+
             Button button = new Button(label);
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
                     Game.getRegistry().dispatch("buy " + button.getText());
+
                     updateDisplayPane();
                     OutputPaneList.getChildren().clear();
                 }
