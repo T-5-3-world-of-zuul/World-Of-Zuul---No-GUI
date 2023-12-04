@@ -18,7 +18,7 @@ public class MainApp extends Application {
 
         mainStage.setTitle("Crop Guard");
         mainStage.setResizable(false);
-        Image icon = new Image("/src/images/CropGuardLogo.png");
+        Image icon = new Image("/src/images/NewCropGuardLogo.png");
         mainStage.getIcons().add(icon);
 
         mainStage.setScene(scene);
@@ -33,12 +33,7 @@ public class MainApp extends Application {
 
     public static void setStage(Stage stage){
         mainStage = stage;
-        mainStage.setTitle("Crop Guard");
-        mainStage.setResizable(false);
-        Image icon = new Image("src/images/NewCropGuardLogo.png");
-        mainStage.getIcons().add(icon);
-        mainStage.setScene(scene);
-        mainStage.show();
+
     }
 }
 
