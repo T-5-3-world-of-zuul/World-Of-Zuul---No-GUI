@@ -26,12 +26,19 @@ public class MainApp extends Application {
     }
 
 
+
     public static Stage getStage(){
         return mainStage;
     }
 
     public static void setStage(Stage stage){
         mainStage = stage;
+        mainStage.setTitle("Crop Guard");
+        mainStage.setResizable(false);
+        Image icon = new Image("src/images/NewCropGuardLogo.png");
+        mainStage.getIcons().add(icon);
+        mainStage.setScene(scene);
+        mainStage.show();
     }
 }
 
