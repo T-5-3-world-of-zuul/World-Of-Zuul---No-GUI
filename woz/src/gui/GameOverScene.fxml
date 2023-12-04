@@ -13,15 +13,17 @@
             stylesheets="@GameOverScene.css"
             prefHeight="720.0" prefWidth="1080.0" styleClass="Window">
 
-    <Pane styleClass="textPane" prefWidth="1080">
+    <VBox  prefWidth="1080">
         <Label text="Game Over" styleClass="GameOverLabel"/>
         <Label styleClass="GameOverText"> You're farm is destroyed, because you failed to protect it from this year's disaster </Label>
-    </Pane>
+        <Label fx:id="ScoreText"> </Label>
 
 
+    </VBox>
 
 
     <Button fx:id="quitBtn" onMouseClicked="#quitGame"  text="QUIT" AnchorPane.bottomAnchor="120" AnchorPane.leftAnchor="350.0"/>
+
 
 
 

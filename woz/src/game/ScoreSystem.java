@@ -1,6 +1,8 @@
 package src.game;
 
 public class ScoreSystem {
+
+    static int combinedScore = 0;
     static int score;
     static int bestEnergyUsedCurrentRound;
     static PlayerEnergy player = PlayerEnergy.getPlayer();
@@ -8,6 +10,10 @@ public class ScoreSystem {
 
     public int getScore() {
         return score;
+    }
+
+    public static int getCombinedScore() {
+        return combinedScore;
     }
 
     /**
@@ -41,6 +47,7 @@ public class ScoreSystem {
         int energyDifference =  bestEnergyUsedCurrentRound - (player.getMaxEnergy() - player.getEnergy());
 
         score += energyDifference + 100;
-        return energyDifference + 100;
+        combinedScore += score;
+        return score;
     }
 }

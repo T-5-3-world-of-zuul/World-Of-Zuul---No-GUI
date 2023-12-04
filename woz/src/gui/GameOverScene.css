@@ -1,5 +1,6 @@
 #quitBtn{
     -fx-padding-left: 200px;
+
     -fx-pref-height: 160px;
     -fx-pref-width: 380px;
 
@@ -50,7 +51,15 @@
     -fx-text-fill: white;
     -fx-wrap-text: true;
     -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+#ScoreText {
+    -fx-font-size: 32px;
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
     -fx-pref-width: 1080;
-    -fx-label-padding: 100;
 
 }
