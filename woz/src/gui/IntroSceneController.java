@@ -5,14 +5,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import java.io.IOException;
 
 
 public class IntroSceneController {
-
     @FXML
+
     public void switchToMainApp(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainApp.fxml"));
         Stage mainStage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -22,12 +24,10 @@ public class IntroSceneController {
         mainStage.setScene(scene);
         mainStage.show();
 
-
-
-
-
-
     }
+
+
+
 
 
 

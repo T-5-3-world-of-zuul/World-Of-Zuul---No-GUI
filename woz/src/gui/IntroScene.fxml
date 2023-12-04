@@ -2,25 +2,32 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.IntroSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1080.0" stylesheets="@IntroScene.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.gui.IntroSceneController">
+
+
    <children>
-      <Button fx:id="SceneSwitchButton" layoutX="350.0" layoutY="350.0"  onAction="#switchToMainApp" prefHeight="160.0" prefWidth="380.0" text="Start Game" AnchorPane.bottomAnchor="120" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
+      <ImageView fx:id="myImageView" fitHeight="720.0" fitWidth="1080.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/BackGroundTest.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="10.0" layoutY="151.0" prefHeight="169.0" prefWidth="1060.0" text="This game is an educational game designed to teach you about ways to secure crop production in a third world country based on UN’s Goal 2.4 'By 2030, ensure sustainable food production systems and implement resilient agricultural practices that increase productivity and production, that help maintain ecosystems, that strengthen capacity for adaptation to climate change extreme weather, drought, flooding and other disasters and that progressively improve land and soil quality'. In practice, this means you (the player) will be playing as a farmer in a third world country you will be walking around your farm, securing your crops from the impending doom that will befall it each year. through trial and error you will hopefully learn better how to secure your crops, Good Luck" textAlignment="CENTER" textFill="#502409" wrapText="true" AnchorPane.bottomAnchor="400.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="150.0">
+         <font>
+            <Font name="Baskerville Old Face" size="18.0" />
+         </font></Label>
+      <Button fx:id="SceneSwitchButton" layoutX="350.0" layoutY="371.0" onAction="#switchToMainApp" text="Start Game" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
          <font>
             <Font size="24.0" />
          </font></Button>
-      <Label prefHeight="320" prefWidth="700" wrapText="true"
-             text="This game is an educational game designed to teach you about ways to secure crop production in a third world country
-based on UN’s Goal 2.4 'By 2030, ensure sustainable food production systems and implement resilient agricultural practices that increase productivity and production,
-that help maintain ecosystems, that strengthen capacity for adaptation to climate change
-extreme weather, drought, flooding and other disasters and that progressively improve land and soil quality'.
-In practice, this means you (the player) will be playing as a farmer in a third world country
-you will be walking around your farm, securing your crops from the impending doom that will befall it each year. through trial and error
-you will hopefully learn better how to secure your crops, Good Luck" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="20">
+      <Label layoutX="313.0" layoutY="61.0" prefHeight="127.0" prefWidth="476.0" text="WELCOME TO CROP GUARD" textAlignment="CENTER" textFill="#502409" AnchorPane.leftAnchor="302.0" AnchorPane.rightAnchor="302.0" AnchorPane.topAnchor="60.0">
          <font>
-            <Font size="24.0" />
-         </font></Label>
+            <Font name="Gill Sans MT" size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
