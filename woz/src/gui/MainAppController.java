@@ -66,7 +66,7 @@ public class MainAppController implements Initializable {
     private void updateDisplayPane() {
         CurrentRoomLabel.setText(context.getCurrent().getName());
         EnergyAmountLabel.setText(context.getPlayer().getEnergy() + "/" + context.getPlayer().getMaxEnergy());
-        CurrentYearLabel.setText(String.valueOf(context.getRoundSystem().getRound() + 1));
+        CurrentYearLabel.setText(String.valueOf(context.getRoundSystem().getRound()));
         CurrentDisasterLabel.setText(context.getRoundSystem().disasterHandler.getDisasterName());
         BackgroundImg.setImage(new Image(context.getCurrent().getImageURl()));
     }
