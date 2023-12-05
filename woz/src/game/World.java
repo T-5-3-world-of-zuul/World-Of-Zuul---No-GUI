@@ -62,14 +62,9 @@ public class World {
     barn.addEdge("Outside", outside);
     well.addEdge("Outside", outside);
 
-    barn.itemsInRoom.AddItemToInventory(ItemRegistry.sandbag);
     barn.itemsInRoom.AddItemToInventory(ItemRegistry.wheatSeed);
     barn.itemsInRoom.AddItemToInventory(ItemRegistry.cornSeed);
-    barn.itemsInRoom.AddItemToInventory(ItemRegistry.fertilizer);
-    barn.itemsInRoom.AddItemToInventory(ItemRegistry.plantPesticide);
-    barn.itemsInRoom.AddItemToInventory(ItemRegistry.pesticide);
-    barn.itemsInRoom.AddItemToInventory(ItemRegistry.antihailnet);
-    barn.itemsInRoom.AddItemToInventory(ItemRegistry.waterPump);
+
 
 
 
