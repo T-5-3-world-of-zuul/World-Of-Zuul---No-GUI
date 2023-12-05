@@ -67,7 +67,7 @@ public class CommandInteract extends BaseCommand implements Command {
                     break;
 
                 case pesticide:
-                    if (curremtRoom.getName().equalsIgnoreCase("Field 1")) {
+                    if (curremtRoom.getName().equalsIgnoreCase("Field 1") || curremtRoom.getName().equalsIgnoreCase("Field 2") || curremtRoom.getName().equalsIgnoreCase("Field 3")) {
                         curremtRoom.itemsUsedInRoom.AddItemToInventory(choosenItem);
                         context.getPlayerInventory().inventory.remove(choosenItem);
                         Game.getRegistry().setOutput("You have used pesticide");
@@ -76,7 +76,7 @@ public class CommandInteract extends BaseCommand implements Command {
                     }
                     break;
                 case plantPesticide:
-                    if (curremtRoom.getName().equalsIgnoreCase("Field 1")) {
+                    if (curremtRoom.getName().equalsIgnoreCase("Field 1") || curremtRoom.getName().equalsIgnoreCase("Field 2") || curremtRoom.getName().equalsIgnoreCase("Field 3")) {
                         curremtRoom.itemsUsedInRoom.AddItemToInventory(choosenItem);
                         context.getPlayerInventory().inventory.remove(choosenItem);
                         Game.getRegistry().setOutput("You have used plant pesticide");
@@ -86,7 +86,7 @@ public class CommandInteract extends BaseCommand implements Command {
                     break;
 
                 case fertilizer:
-                    if (curremtRoom.getName().equalsIgnoreCase("Field 1")) {
+                    if (curremtRoom.getName().equalsIgnoreCase("Field 1") || curremtRoom.getName().equalsIgnoreCase("Field 2") || curremtRoom.getName().equalsIgnoreCase("Field 3")) {
                         curremtRoom.itemsUsedInRoom.AddItemToInventory(choosenItem);
                         context.getPlayerInventory().inventory.remove(choosenItem);
                         Game.getRegistry().setOutput("You have used fertilizer");
@@ -96,7 +96,7 @@ public class CommandInteract extends BaseCommand implements Command {
                     break;
 
                 case antihailnet:
-                    if (curremtRoom.getName().equalsIgnoreCase("Field 1")) {
+                    if (curremtRoom.getName().equalsIgnoreCase("Field 1") || curremtRoom.getName().equalsIgnoreCase("Field 2") || curremtRoom.getName().equalsIgnoreCase("Field 3")) {
                         curremtRoom.itemsUsedInRoom.AddItemToInventory(choosenItem);
                         context.getPlayerInventory().inventory.remove(choosenItem);
                         Game.getRegistry().setOutput("You have build an anti-hail net");

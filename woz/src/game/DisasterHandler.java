@@ -48,33 +48,33 @@ public class DisasterHandler {
                 }
                 break;
             case HAIL:
-                Item antihailnet1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
-                Item antihailnet2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
-                Item antihailnet3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
+                Item antihailnet1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("antihailnet");
+                Item antihailnet2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("antihailnet");
+                Item antihailnet3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("antihailnet");
                 if(antihailnet1 != null && antihailnet2 != null && antihailnet3 != null && seedsPlantedEverywhere){
                     currentDisasterSolved = true;
                 }
                 break;
             case LOCUST_SWARMS:
-                Item pesticide1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
-                Item pesticide2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
-                Item pesticide3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
+                Item pesticide1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("pesticide");
+                Item pesticide2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("pesticide");
+                Item pesticide3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("pesticide");
                 if(pesticide1 != null && pesticide2 != null && pesticide3 != null && seedsPlantedEverywhere) {
                     currentDisasterSolved = true;
                 }
                 break;
             case PLANT_DISEASE:
-                Item plantPesticide1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
-                Item plantPesticide2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
-                Item plantPesticide3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
+                Item plantPesticide1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("plantPesticide");
+                Item plantPesticide2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("plantPesticide");
+                Item plantPesticide3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("plantPesticide");
                 if(plantPesticide1 != null && plantPesticide2 != null && plantPesticide3 != null && seedsPlantedEverywhere) {
                     currentDisasterSolved = true;
                 }
                 break;
             case NUTRITION_FAILURE:
-                Item fertilizer1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("");
-                Item fertilizer2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("");
-                Item fertilizer3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("");
+                Item fertilizer1 = World.getSpace("Field 1").itemsUsedInRoom.CheckForItem("fertilizer");
+                Item fertilizer2 = World.getSpace("Field 2").itemsUsedInRoom.CheckForItem("fertilizer");
+                Item fertilizer3 = World.getSpace("Field 3").itemsUsedInRoom.CheckForItem("fertilizer");
                 if(fertilizer1 != null && fertilizer2 != null && fertilizer3 != null && seedsPlantedEverywhere) {
                     currentDisasterSolved = true;
                 }
