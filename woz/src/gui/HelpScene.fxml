@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="src.gui.HelpSceneController"
+            prefHeight="720.0" prefWidth="1080.0" stylesheets="@HelpScene.css">
+    <VBox AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10">
+        <Label fx:id="HelpText" text="${'In this game you will be controlling a farmer from a third world country,
+your goal is to keep the farm running while using various methods to secure your farm from coming disasters.
+Don’t worry you will start on year 0, where no disaster is looming so take your time and look around your farm.
+In order to progress to year 1 you will need to sleep in your bed. This is done by using the sleep command while in your bedchambers.
+Once you progress to year 1 a disaster starts looming. This can be seen in the corner of the display.
+In order to progress through the years you will need to use the buy command to purchase various solutions.
+And then install them on your farm. A short hint for the current disaster can be found by studying in your office.
+Remember that every action you take, costs energy. If you run out of energy you lose.
+\n As a final word of advice, if you’re ever in doubt study and purchase something.'}">
+        </Label>
+
+        <Button fx:id="CloseBtn" text="Close" onMouseClicked="#CloseHelpWindow" />
+
+    </VBox>
+
+
+</AnchorPane>

@@ -13,7 +13,7 @@
             stylesheets="@GameOverScene.css"
             prefHeight="720.0" prefWidth="1080.0" styleClass="Window">
 
-    <VBox  prefWidth="1080">
+    <VBox  prefWidth="1080" >
         <Label text="Game Over" styleClass="GameOverLabel"/>
         <Label styleClass="GameOverText"> You're farm is destroyed, because you failed to protect it from this year's disaster </Label>
         <Label fx:id="ScoreText"> </Label>
