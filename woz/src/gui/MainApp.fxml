@@ -31,10 +31,10 @@
                   <Image url="/src/images/EnergyIcon.png" />
                </image>
             </ImageView>
-
             <Label fx:id="YearLabel" text="Year:" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="10" />
             <Label fx:id="CurrentYearLabel" text="N/A" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="72" />
             <Label fx:id="CurrentDisasterLabel" text="Peaceful" AnchorPane.bottomAnchor="0" AnchorPane.rightAnchor="0" />
+            <Button onAction="#helpMenu" prefHeight="40" prefWidth="120" text="Help" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="90"/>
          </children>
       </AnchorPane>
 

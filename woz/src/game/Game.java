@@ -76,9 +76,6 @@ public class Game {
     }
 
     System.out.println("Game Over 😥");
-
-
-
   }
 
   public void GameOver() throws IOException {
