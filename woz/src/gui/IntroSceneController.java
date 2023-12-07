@@ -27,6 +27,17 @@ public class IntroSceneController {
     }
 
 
+    public void openHelpPopup(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("HelpScene.fxml"));
+        Stage helpStage = new Stage();
+        helpStage.setTitle("Help Menu");
+        Scene scene = new Scene(root);
+        String css = this.getClass().getResource("HelpScene.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        helpStage.setScene(scene);
+        helpStage.show();
+    }
+
 
 
 

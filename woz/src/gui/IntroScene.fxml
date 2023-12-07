@@ -29,5 +29,9 @@
             <Font name="Gill Sans MT" size="36.0" />
          </font>
       </Label>
+      <Button fx:id="HelpStageBtn"  onAction="#openHelpPopup" text="Help" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" >
+         <font>
+            <Font size="24.0" />
+         </font></Button>
    </children>
 </AnchorPane>

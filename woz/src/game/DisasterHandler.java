@@ -130,12 +130,12 @@ public class DisasterHandler {
     public String hint(int round) {
         String hints = switch (type) {
             case null -> "GO SCHLEEP";
-            case DROUGHT -> "You need to install a water pump in the well";
-            case FLOOD -> "You need to place sandbags in all fields";
-            case HAIL -> "You need to build a hail net";
-            case LOCUST_SWARMS -> "Using pesticides is a great way to stop a swarm of locusts.";
-            case PLANT_DISEASE -> "Using pesticides is a great way to stop plant disease.";
-            default -> "NPK fertilizers may help enrich the soil.";
+            case DROUGHT -> "You need water to sustain your crops, more than what your well produces now";
+            case FLOOD -> "You need to minimize water coming to your fields, sand is a good water absorbant";
+            case HAIL -> "You need to protect your fields from incoming hail, nets are good for deflecting hail";
+            case LOCUST_SWARMS -> "You need to stop as many locusts as possible, pesticides kill locusts on consumption.";
+            case PLANT_DISEASE -> "You need to stop plant disease from spreading, plant pesticide kills most of the disease.";
+            default -> "You need to enrich your soil, NPK fertilizer is great at supplying Nitrogen, Phosphor and Potassium to the soil.";
         };
 
         // Check if the round is within the valid range of hints

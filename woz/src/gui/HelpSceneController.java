@@ -1,5 +1,4 @@
 package src.gui;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +20,5 @@ public class HelpSceneController {
         scene.getStylesheets().add(css);
         mainStage.setScene(scene);
         mainStage.show();
-
     }
 }
