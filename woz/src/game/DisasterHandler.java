@@ -129,7 +129,7 @@ public class DisasterHandler {
 
     public String hint(int round) {
         String hints = switch (type) {
-            case null -> "GO SCHLEEP";
+            case null -> "GO SLEEP";
             case DROUGHT -> "You need water to sustain your crops, more than what your well produces now";
             case FLOOD -> "You need to minimize water coming to your fields, sand is a good water absorbant";
             case HAIL -> "You need to protect your fields from incoming hail, nets are good for deflecting hail";
