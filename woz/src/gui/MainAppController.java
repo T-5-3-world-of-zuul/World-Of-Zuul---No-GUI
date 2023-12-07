@@ -310,12 +310,13 @@ public class MainAppController implements Initializable {
     public void helpMenu(ActionEvent event) throws IOException{
         System.out.println("clicked help");
         Parent root = FXMLLoader.load(getClass().getResource("HelpScene.fxml"));
-        Stage mainStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage helpStage = new Stage();
+        helpStage.setTitle("Help Menu");
         Scene scene = new Scene(root);
         String css = this.getClass().getResource("HelpScene.css").toExternalForm();
         scene.getStylesheets().add(css);
-        mainStage.setScene(scene);
-        mainStage.show();
+        helpStage.setScene(scene);
+        helpStage.show();
     }
 }
 
