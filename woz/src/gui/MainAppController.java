@@ -2,6 +2,10 @@ package src.gui;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
@@ -20,6 +24,7 @@ import java.util.Set;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import src.game.Context;
 import src.game.Game;
 import src.game.Item;
@@ -301,8 +306,16 @@ public class MainAppController implements Initializable {
         }
         updateOutPane(buttonList);
     }
-
-
+    @FXML
+    public void helpMenu(ActionEvent event) throws IOException{
+        System.out.println("clicked help");
+        Parent root = FXMLLoader.load(getClass().getResource("HelpScene.fxml"));
+        Stage mainStage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        String css = this.getClass().getResource("HelpScene.css").toExternalForm();
+        scene.getStylesheets().add(css);
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
 }
-
 

@@ -1,52 +1,32 @@
-AnchorPane{
-    -fx-background-color: #2f3640;
-}
-
-VBox {
-    -fx-alignment: center;
-    -fx-spacing: 50;
-}
-
-#CloseBtn{
-
+#SceneSwitchButton{
     -fx-pref-height: 160px;
     -fx-pref-width: 380px;
-    -fx-alignment: center;
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #3870d2, #8ac9fc);
+
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #824315, #a85628);
     -fx-font-size: 42px;
     -fx-background-radius: 50px;
-    -fx-border-color: black;
+    -fx-border-color: #502409;
     -fx-border-radius: 50px;
-    -fx-text-fill: white;
+    -fx-text-fill: #ffffff;
 
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 5, 0.1, 5, 5);
 
 }
 
-#CloseBtn:hover{
-    fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #285ebd, #6087a6);
+#SceneSwitchButton:hover{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #a85628, #824315);
     -fx-font-size: 46px;
     -fx-pref-height: 180px;
     -fx-pref-width: 400px;
-    -fx-translate-y: -10px;
+    -fx-translate-y: 10px;
+    -fx-translate-x: -10px;
 }
 
-#CloseBtn:pressed{
-    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1d448a, #4a6880);
+#SceneSwitchButton:pressed{
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #824315, #a85628);
     -fx-font-size: 42px;
     -fx-pref-height: 140px;
     -fx-pref-width: 360px;
-    -fx-translate-y: 10px;
-}
-
-#HelpText{
-
-    -fx-wrap-text: true;
-    -fx-font-size: 24px;
-    -fx-text-fill: white;
-    -fx-text-alignment: center;
-    -fx-alignment: center;
-    -fx-max-width: 1080;
-    -fx-max-height: 720;
-
+    -fx-translate-y: -10px;
+    -fx-translate-x: 10px;
 }
